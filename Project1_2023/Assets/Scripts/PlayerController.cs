@@ -6,6 +6,7 @@ using System.Timers;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,11 +15,8 @@ public class PlayerController : MonoBehaviour
     private GameObject player = new GameObject();
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
-
-    private Transform currentPos;
-    private Transform nextPos;
     private float timeElapsed;
-
+   
     
     void Start()
     {
@@ -31,92 +29,125 @@ public class PlayerController : MonoBehaviour
     {
         //constant movement on the z-axis
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
-        move();
+        lerpmove();
 
     }
 
-    public void move()
+
+
+    public void lerpmove()
     {
         UnityEngine.Vector3 playerPos = transform.position;
-
-        //allows the character to jump
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("w") || Input.GetKeyDown("up"))
-        {
-           
-         
-            _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, 5, _rigComp.velocity.z);
-            Jumpstart();
-
-        }
-        float middle, left, right;
+        float middle, right, left;  
         middle = .81f;
         right = 6.58f;
         left = -5.17f;
 
-
-        //will switch the character between the axis
-        if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
-            rollleftStart();
-            Debug.Log("left");
+            _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, 5, _rigComp.velocity.z);
+            Jump();
+        }
+
+            //will switch the character between the axis
+            if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
+        {
+            rollleft();
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z);
+            UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, transform.position.y, transform.position.z);
+
             if (playerPos.x == middle)
             {
-                    transform.position = new UnityEngine.Vector3(-5.17f, transform.position.y, transform.position.z);
+                StartCoroutine(MoveLerp(LeftTarget));
+
             }
             else if (playerPos.x == right)
             {
-                    transform.position = new UnityEngine.Vector3(0.81f, transform.position.y, transform.position.z);
+                StartCoroutine(MoveLerp(MiddleTarget));
             }
+   
         }
 
-            if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
-            rollRightStart();
-            Debug.Log("right");
-            if (playerPos.x == left)
+            rollRight();
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z);
+            UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z);
+
+            if (playerPos.x == middle)
             {
-                    transform.position = new UnityEngine.Vector3(0.81f, transform.position.y, transform.position.z);
-            }
-            else if (playerPos.x == middle)
-            { 
-                    transform.position = new UnityEngine.Vector3(6.58f, transform.position.y, transform.position.z);
+                StartCoroutine(MoveLerp(RightTarget));
 
             }
+            else if (playerPos.x == left)
+            {
+                StartCoroutine(MoveLerp(MiddleTarget));
+            }
+
 
         }
 
-    } 
 
-    public void Jumpstart()
+    }
+   IEnumerator MoveLerp( UnityEngine.Vector3 TargetPos)
     {
+        _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
+        float time = 0;
+        UnityEngine.Vector3 CurrentPos = transform.position;
+
+        while(time < 1)
+        {
+            CurrentPos.z += 10;
+            transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
+            time += Time.deltaTime;
+            yield return null;
+        }
+      
+         transform.position = TargetPos;
+        Debug.Log("end");
+        
+    }
+    public void Jump()
+    {
+       if(_aniComp.GetBool("isJumping") == false)
+       {
         _aniComp.SetBool("isJumping", true);
 
-    }
-    public void JumpEnd()
-    {
-        _aniComp.SetBool("isJumping", false);
+       }
+       else
+       {
+            _aniComp.SetBool("isJumping", false);
+       }
+
 
     }
-    public void rollleftStart()
+    public void rollleft()
     {
-        _aniComp.SetBool("rollLeft", true);
+        if (_aniComp.GetBool("rollLeft") == false)
+        {
+            _aniComp.SetBool("rollLeft", true);
+
+        }
+        else
+        {
+            _aniComp.SetBool("rollLeft", false);
+        }
+        
 
     }
-    public void rollleftEnd()
+    public void rollRight()
     {
-        _aniComp.SetBool("rollLeft", false);
-
+        
+        if (_aniComp.GetBool("rollRight") == false)
+        {
+            _aniComp.SetBool("rollRight", true);
+        }
+        else
+        {
+            _aniComp.SetBool("rollRight", false);
+        }
     }
-    public void rollRightStart()
-    {
-        _aniComp.SetBool("rollRight", true);
 
-    }
-    public void rollRightEnd()
-    {
-        _aniComp.SetBool("rollRight", false);
-
-    }
 
 
 
