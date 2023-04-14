@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -14,6 +15,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
 
+    private Transform currentPos;
+    private Transform nextPos;
+    private float timeElapsed;
+
     
     void Start()
     {
@@ -28,7 +33,6 @@ public class PlayerController : MonoBehaviour
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
         move();
 
-
     }
 
     public void move()
@@ -36,7 +40,7 @@ public class PlayerController : MonoBehaviour
         UnityEngine.Vector3 playerPos = transform.position;
 
         //allows the character to jump
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("w") || Input.GetKeyDown("up"))
         {
            
          
@@ -44,11 +48,12 @@ public class PlayerController : MonoBehaviour
             Jumpstart();
 
         }
-
         float middle, left, right;
         middle = .81f;
         right = 6.58f;
         left = -5.17f;
+
+
         //will switch the character between the axis
         if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
@@ -56,28 +61,26 @@ public class PlayerController : MonoBehaviour
             Debug.Log("left");
             if (playerPos.x == middle)
             {
-                playerPos.x = left;
-
+                    transform.position = new UnityEngine.Vector3(-5.17f, transform.position.y, transform.position.z);
             }
             else if (playerPos.x == right)
             {
-                playerPos.x = middle;
+                    transform.position = new UnityEngine.Vector3(0.81f, transform.position.y, transform.position.z);
             }
-
         }
 
-        if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
+            if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
             rollRightStart();
             Debug.Log("right");
-            if (playerPos.x == middle)
+            if (playerPos.x == left)
             {
-                playerPos.x = right; 
-
+                    transform.position = new UnityEngine.Vector3(0.81f, transform.position.y, transform.position.z);
             }
-            else if(playerPos.x == left)
-            {
-                playerPos.x = middle;
+            else if (playerPos.x == middle)
+            { 
+                    transform.position = new UnityEngine.Vector3(6.58f, transform.position.y, transform.position.z);
+
             }
 
         }
