@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
@@ -17,14 +19,18 @@ public class GameManager : Singleton<GameManager>
     {
       
     }
+    private void Awake()
+    {
+        Quit.onClick.AddListener(onQuitClicked);
+        Start.onClick.AddListener(onStartClicked);
+    }
     public  void onQuitClicked()
     {
-        Debug.Log("quit");
         Application.Quit();
     }
     public void onStartClicked()
     {
-        Debug.Log("start");
+        SceneManager.LoadScene(1);
     }
 
 }
