@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerChar
-  - Rock
   - Delete
+  - Obstacle
   layers:
   - Default
   - TransparentFX

@@ -32,5 +32,9 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene(1);
     }
+    public void GameOver()
+    {
+        SceneManager.LoadScene(2);
+    }
 
 }
