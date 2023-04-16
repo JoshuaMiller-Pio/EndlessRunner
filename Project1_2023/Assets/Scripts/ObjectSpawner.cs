@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] obstacles ;
-    public static GameObject[] obstaclesSpawned = new GameObject[10];
+   // public  GameObject[] obstaclesSpawned = new GameObject[10];
     public GameObject Player;
     public enum lanes { First, Second, Third};
     public Vector3 spawnPosition;
@@ -44,8 +44,9 @@ public class ObjectSpawner : MonoBehaviour
                 spawnPosition = new Vector3(6.15f, 0.68f, (Player.transform.position.z + 40));
             }
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
+           
             
-            obstaclesSpawned[i] = newObject;
+           // obstaclesSpawned[i] = newObject;
             i++;
             yield return new WaitForSeconds(spawnRate);
 
