@@ -8,6 +8,7 @@ TagManager:
   - Delete
   - Obstacle
   - ScoreBox
+  - Multiplier
   layers:
   - Default
   - TransparentFX
