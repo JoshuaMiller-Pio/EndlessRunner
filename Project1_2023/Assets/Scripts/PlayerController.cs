@@ -100,9 +100,10 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.1f)); 
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
             OnPlayerDeath();
         }
