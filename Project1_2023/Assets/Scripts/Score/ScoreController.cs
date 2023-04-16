@@ -19,7 +19,14 @@ public class ScoreController : MonoBehaviour
     {
         if(other.tag == "ScoreBox")
         {
-            score++;
+            if(ScoreMultiplier.multiplyOn == true)
+            {
+                score = score + 2;
+            }
+            else
+            {
+                score = score + 1;
+            }
         }
     }
     // Update is called once per frame
