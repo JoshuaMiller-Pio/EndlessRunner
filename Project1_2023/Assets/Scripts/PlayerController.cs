@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private GameObject player = new GameObject();
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
+    private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
    
     
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     {
         _rigComp = GetComponent<Rigidbody>();
         _aniComp = GetComponent<Animator>();
+        _colliderComp = GetComponent<CapsuleCollider>();
+
     }
 
     // Update is called once per frame
@@ -29,7 +32,9 @@ public class PlayerController : MonoBehaviour
     {
         //constant movement on the z-axis
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
+
         lerpmove();
+  
 
     }
 
@@ -43,7 +48,7 @@ public class PlayerController : MonoBehaviour
         right = 6.58f;
         left = -5.17f;
 
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("w") || Input.GetKeyDown("up"))
+        if ((Input.GetKeyDown("space") || Input.GetKeyDown("w") || Input.GetKeyDown("up")) && isgrounded())
         {
             _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, 5, _rigComp.velocity.z);
             Jump();
@@ -89,7 +94,29 @@ public class PlayerController : MonoBehaviour
 
 
     }
-   IEnumerator MoveLerp( UnityEngine.Vector3 TargetPos)
+
+    private  bool isgrounded()
+    {
+        return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.1f)); 
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            OnPlayerDeath();
+        }
+    }
+
+    private void OnPlayerDeath()
+    {
+        GameManager gameManager = new GameManager();
+        gameManager.GameOver();
+
+    }
+
+    IEnumerator MoveLerp( UnityEngine.Vector3 TargetPos)
     {
         float time = 0;
         UnityEngine.Vector3 CurrentPos = transform.position;
