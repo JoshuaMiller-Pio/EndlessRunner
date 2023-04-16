@@ -14,13 +14,16 @@ public class ObjectDeleter : MonoBehaviour
         //StartCoroutine(DestroyObject());
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "Delete")
+        if (other.tag == "Delete")
         {
             Destroy(this.gameObject);
         }
     }
+
     /*public IEnumerator DestroyObject()
     {
         while (true)
