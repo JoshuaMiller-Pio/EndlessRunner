@@ -50,11 +50,11 @@ public class PlayerController : MonoBehaviour
         }
 
             //will switch the character between the axis
-            if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
             rollleft();
-            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z);
-            UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, transform.position.y, transform.position.z);
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z + 10);
+            UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, transform.position.y, transform.position.z + 10);
 
             if (playerPos.x == middle)
             {
@@ -71,8 +71,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
             rollRight();
-            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z);
-            UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z);
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z +10);
+            UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z+10);
 
             if (playerPos.x == middle)
             {
@@ -91,20 +91,17 @@ public class PlayerController : MonoBehaviour
     }
    IEnumerator MoveLerp( UnityEngine.Vector3 TargetPos)
     {
-        _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
         float time = 0;
         UnityEngine.Vector3 CurrentPos = transform.position;
 
         while(time < 1)
         {
-            CurrentPos.z += 10;
             transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
             time += Time.deltaTime;
             yield return null;
         }
       
          transform.position = TargetPos;
-        Debug.Log("end");
         
     }
     public void Jump()
