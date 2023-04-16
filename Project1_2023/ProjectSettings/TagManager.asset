@@ -6,7 +6,9 @@ TagManager:
   tags:
   - PlayerChar
   - Delete
+
   - Obstacle
+
   layers:
   - Default
   - TransparentFX
