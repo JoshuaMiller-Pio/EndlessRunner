@@ -11,7 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     public Vector3 spawnPosition;
     public static List<GameObject> spawnedObjects = new List<GameObject>();
     // Update is called once per frame
-    private void Awake()
+    private void Start()
     {
       
         StartCoroutine(SpawnObject());
@@ -29,7 +29,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             
             int objToSpwn = Random.Range(0, obstacles.Length);
-            int spawnRate = Random.Range(0,5);
+            int spawnRate = Random.Range(0,3);
             int lane = Random.Range(0, 4);
             if (lane == 1 && objToSpwn == 0)
             {
@@ -49,9 +49,17 @@ public class ObjectSpawner : MonoBehaviour
             }
             foreach (var obj in spawnedObjects) 
             {
-                if (obj.transform.position == spawnPosition)
+                if (obj.transform.position.z == spawnPosition.z)
                 {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + 70);
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40,70));
+                }
+                if(obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10) 
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
+                }
+                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
                 }
             }
             
