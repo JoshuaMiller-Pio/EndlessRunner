@@ -31,17 +31,21 @@ public class ObjectSpawner : MonoBehaviour
             int objToSpwn = Random.Range(0, obstacles.Length);
             int spawnRate = Random.Range(5,10);
             int lane = Random.Range(0, 4);
-            if (lane == 1)
+            if (lane == 1 && objToSpwn == 0)
             {
                 spawnPosition = new Vector3(-5.17f, 0.37f, (Player.transform.position.z + 40));
             }
-            if (lane == 2)
+            else if (lane == 2 && objToSpwn == 0)
             {
                 spawnPosition = new Vector3(0.81f, 0.37f, (Player.transform.position.z + 40));
             }
-            if (lane == 3)
+            else if (lane == 3 && objToSpwn == 0)
             {
                 spawnPosition = new Vector3(6.58f, 0.37f, (Player.transform.position.z + 40));
+            }
+            else
+            {
+                spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
             }
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
            

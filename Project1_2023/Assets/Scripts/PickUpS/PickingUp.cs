@@ -11,11 +11,13 @@ public class PickingUp : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Multiplier")
+        if (gameObject.tag == "PlayerChar" && other.tag == "Multiplier")
         {
+            Debug.Log("multiply");
             StartCoroutine(ScoreMultiplier.StartMultiply());
 
-            Destroy(other);
+            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+           
         }
     }
     // Update is called once per frame
