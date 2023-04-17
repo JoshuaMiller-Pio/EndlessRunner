@@ -26,6 +26,7 @@ public class ScoreController : MonoBehaviour
             else
             {
                 score = score + 1;
+                StopCoroutine(ScoreMultiplier.StartMultiply());
             }
         }
     }

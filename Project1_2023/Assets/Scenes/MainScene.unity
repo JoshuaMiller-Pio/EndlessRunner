@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 3091618522385061844, guid: 51f1210e9e5b2314dabfa90b9fee9c24, type: 3}
+  - {fileID: 5991859188722781225, guid: dcf46e3bf9440db41bad929c5bb0bda7, type: 3}
   Player: {fileID: 809385528}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &249290866

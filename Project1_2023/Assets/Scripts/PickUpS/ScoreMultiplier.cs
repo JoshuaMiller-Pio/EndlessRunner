@@ -21,7 +21,9 @@ public class ScoreMultiplier : MonoBehaviour
     {
         multiplyOn = true;
         yield return new WaitForSeconds(30);
+       // StopCoroutine(StartMultiply());
         multiplyOn = false;
+        
     }
     // Update is called once per frame
     void Update()
