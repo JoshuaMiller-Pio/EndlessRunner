@@ -5,19 +5,24 @@ using UnityEditor.PackageManager;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+  
     [SerializeField]
-    private Button Start;
-    [SerializeField]
-    private Button Quit;
-    [SerializeField]
-    private TextMeshProUGUI DeathText;
-    
+    private TMPro.TextMeshProUGUI DeathText;
+    private float playerscore;
+    public string Player_Name;
 
-   
+    public float Playerscore   
+    {
+        get { return playerscore; }   
+        set { playerscore = value; }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -25,8 +30,9 @@ public class GameManager : Singleton<GameManager>
     }
     private void Awake()
     {
-        Quit.onClick.AddListener(onQuitClicked);
-        Start.onClick.AddListener(onStartClicked);
+        Debug.Log(playerscore + "nah");
+
+
     }
     public  void onQuitClicked()
     {
@@ -43,8 +49,10 @@ public class GameManager : Singleton<GameManager>
 
     public void gameoverScore(int score )
     {
-        Debug.Log(score);
-        DeathText.text = $"Score: {score}";
-    }
+        DeathText = GameObject.FindGameObjectWithTag("output").GetComponent<TextMeshProUGUI>() ;
+        DeathText.text = "Score: "+score;
+
+    } 
+
 
 }
