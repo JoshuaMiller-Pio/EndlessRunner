@@ -5,13 +5,13 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject[] obstacles ;
-   // public  GameObject[] obstaclesSpawned = new GameObject[10];
+   
     public GameObject Player;
     public enum lanes { First, Second, Third};
     public Vector3 spawnPosition;
-    
+    public static List<GameObject> spawnedObjects = new List<GameObject>();
     // Update is called once per frame
-    private void Awake()
+    private void Start()
     {
       
         StartCoroutine(SpawnObject());
@@ -29,8 +29,9 @@ public class ObjectSpawner : MonoBehaviour
         {
             
             int objToSpwn = Random.Range(0, obstacles.Length);
-            int spawnRate = Random.Range(0,5);
+            int spawnRate = Random.Range(0,3);
             int lane = Random.Range(0, 4);
+            //Generates apropriate spawn position based on randomly selected lane and object prefab
             if (lane == 1 && objToSpwn == 0)
             {
                 spawnPosition = new Vector3(-5.17f, 0.25f, (Player.transform.position.z + 40));
@@ -47,10 +48,29 @@ public class ObjectSpawner : MonoBehaviour
             {
                 spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
             }
-            GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
-           
+            //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
+            foreach (var obj in spawnedObjects) 
+            {
+                if (obj.transform.position.z == spawnPosition.z)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40,70));
+                }
+                if(obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10) 
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
+                }
+                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
+                }
+            }
             
-           // obstaclesSpawned[i] = newObject;
+            //Instantiates a new object at the final spawn position
+            GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
+
+            //Adds the spawned object to the list of spawned objects
+            spawnedObjects.Add( newObject );
+            
             i++;
             yield return new WaitForSeconds(spawnRate);
 

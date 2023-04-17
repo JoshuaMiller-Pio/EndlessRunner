@@ -33,6 +33,8 @@ public class PickUpSpawn : MonoBehaviour
             int spawnRate = Random.Range(10, 20);
 
             int lane = Random.Range(0, 4);
+
+            //Generates apropriate spawn position based on randomly selected lane and object prefab
             if (lane == 1)
             {
                 spawnPosition = new Vector3(-5.17f, 0.37f, (Player.transform.position.z + 40));
@@ -45,10 +47,28 @@ public class PickUpSpawn : MonoBehaviour
             {
                 spawnPosition = new Vector3(6.58f, 0.37f, (Player.transform.position.z + 40));
             }
+
+            //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
+            foreach (var obj in ObjectSpawner.spawnedObjects)
+            {
+                if (obj.transform.position.z == spawnPosition.z)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
+                }
+                if (obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
+                }
+                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15,25));
+                }
+            }
+
             GameObject newObject = Instantiate(pickUps[objToSpwn], spawnPosition, Quaternion.identity);
 
 
-            // obstaclesSpawned[i] = newObject;
+           
             i++;
             yield return new WaitForSeconds(spawnRate);
 

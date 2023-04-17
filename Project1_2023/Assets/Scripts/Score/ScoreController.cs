@@ -28,6 +28,7 @@ public class ScoreController : MonoBehaviour
                 score = score + 1;
                 StopCoroutine(ScoreMultiplier.StartMultiply());
             }
+            
         }
     }
     private void OnCollisionEnter(Collision collision)

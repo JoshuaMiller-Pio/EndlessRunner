@@ -106,14 +106,18 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-          
+            ObjectSpawner.spawnedObjects.Clear();
             OnPlayerDeath();
         }
     }
 
     private void OnPlayerDeath()
     {
+
+       
+    
         GameManager.Instance.GameOver();
+
 
     }
 
