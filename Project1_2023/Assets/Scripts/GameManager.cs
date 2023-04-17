@@ -28,11 +28,11 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
-      
+        scenecheck();
+
     }
     private void Awake()
     {
-        Debug.Log(playerscore + "nah");
 
 
     }
@@ -47,14 +47,34 @@ public class GameManager : Singleton<GameManager>
     public void GameOver()
     {
         SceneManager.LoadScene(2);
+
     }
 
-    public void gameoverScore(int score )
+       
+    public void scenecheck()
     {
-        DeathText = GameObject.FindGameObjectWithTag("output").GetComponent<TextMeshProUGUI>() ;
-        DeathText.text = "Score: "+score;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            gameoverScore();
+        }
+    }
+    public void gameoverScore( )
+    {
 
-    } 
+        //does it from scene 1 thats why
+       
+        
+            DeathText = GameObject.Find("DeathScore_Txt").GetComponent<TextMeshProUGUI>();
+            DeathText.text = $"score: {playerscore}";
+        
+        
+
+    }
+    IEnumerator deathScore(int score)
+    {
+       
+        yield return null; 
+    }
 
 
 
