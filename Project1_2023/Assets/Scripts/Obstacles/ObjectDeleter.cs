@@ -11,7 +11,7 @@ public class ObjectDeleter : MonoBehaviour
     void Awake()
     {
         
-        //StartCoroutine(DestroyObject());
+        
     }
 
 
@@ -21,48 +21,12 @@ public class ObjectDeleter : MonoBehaviour
         if (other.tag == "Delete")
         {
             Destroy(this.gameObject);
+
+            //Removes the destroyed object from the ObjectSpawners() spawnedObjects list;
             ObjectSpawner.spawnedObjects.Remove(this.gameObject);
         }
     }
 
-    /*public IEnumerator DestroyObject()
-    {
-        while (true)
-        {
-            int i = 0;
-           /* for (int i = 0; i < spawner.obstaclesSpawned.Length; i++)
-            {
-                
-            }*/
-    /*  foreach (var obstacle in spawner.obstaclesSpawned)
-      {
-          if (spawner.obstaclesSpawned[i].transform.position.z < Player.transform.position.z)
-          {
-              GameObject myObstacle = spawner.obstaclesSpawned[i];
-              Destroy(myObstacle);
-              spawner.obstaclesSpawned[i] = null;
-              for (int k = 0; k < spawner.obstaclesSpawned.Length; k++)
-              {
-                  if (spawner.obstaclesSpawned[k] = null)
-                  {
-                      GameObject temp = spawner.obstaclesSpawned[k + 1];
-                      spawner.obstaclesSpawned[k] = temp;
-                      k++;
-                  }
-              }
-              i++;
-
-          }
-          else
-          {
-              yield return new WaitForSeconds(2);
-          }
-      }
-
-      yield return new WaitForSeconds(2);
-  }
-
-}*/
 
     // Update is called once per frame
     void Update()

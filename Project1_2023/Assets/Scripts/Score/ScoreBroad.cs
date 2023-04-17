@@ -6,15 +6,16 @@ using TMPro;
 
 public class ScoreBroad : MonoBehaviour
 {
-    public GameObject Player;
-    public TMP_Text ScoreText;
-    int score;
+    public  GameObject Player;
+    public  TMP_Text ScoreText;
+    public  int score;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
+  
     // Update is called once per frame
     void Update()
     {
