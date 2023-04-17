@@ -29,7 +29,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             
             int objToSpwn = Random.Range(0, obstacles.Length);
-            int spawnRate = Random.Range(5,10);
+            int spawnRate = Random.Range(0,5);
             int lane = Random.Range(0, 4);
             if (lane == 1 && objToSpwn == 0)
             {
