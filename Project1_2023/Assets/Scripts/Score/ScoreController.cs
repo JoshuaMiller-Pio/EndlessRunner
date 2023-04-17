@@ -17,7 +17,7 @@ public class ScoreController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "ScoreBox")
+        if(other.tag == "ScoreBox" )
         {
             if(ScoreMultiplier.multiplyOn == true)
             {
