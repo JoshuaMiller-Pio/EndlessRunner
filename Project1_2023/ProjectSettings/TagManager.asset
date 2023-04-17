@@ -7,6 +7,8 @@ TagManager:
   - PlayerChar
   - Delete
   - Obstacle
+  - ScoreBox
+  - Multiplier
   layers:
   - Default
   - TransparentFX
