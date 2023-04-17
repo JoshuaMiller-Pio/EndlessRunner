@@ -18,7 +18,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
 
     
-
+    //
     public static IEnumerator StartMultiply()
     {
         multiplyOn = true;
