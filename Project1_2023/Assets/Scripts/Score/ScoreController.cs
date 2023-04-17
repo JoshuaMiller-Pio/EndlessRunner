@@ -30,6 +30,14 @@ public class ScoreController : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            GameManager.Instance.gameoverScore(score);
+
+        }
+    }
     // Update is called once per frame
     void Update()
     {

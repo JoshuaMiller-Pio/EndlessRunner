@@ -12,15 +12,16 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private GameObject player = new GameObject();
+    private GameObject player;
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
    
     
-    void Awake()
+    void Start()
     {
+          player = new GameObject();
         _rigComp = GetComponent<Rigidbody>();
         _aniComp = GetComponent<Animator>();
         _colliderComp = GetComponent<CapsuleCollider>();
@@ -112,9 +113,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        GameManager gameManager = new GameManager();
+
         ObjectSpawner.spawnedObjects.Clear();
-        gameManager.GameOver();
+       
+
+        GameManager.Instance.GameOver();
+
 
     }
 
