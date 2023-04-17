@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour
     private void OnPlayerDeath()
     {
         GameManager gameManager = new GameManager();
+        ObjectSpawner.spawnedObjects.Clear();
         gameManager.GameOver();
 
     }
