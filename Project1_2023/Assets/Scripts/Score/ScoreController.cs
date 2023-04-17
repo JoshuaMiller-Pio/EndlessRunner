@@ -34,9 +34,8 @@ public class ScoreController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            GameManager gameMan = new GameManager();
-            Debug.Log("scorecontroller");
-            gameMan.gameoverScore(score);
+            GameManager.Instance.gameoverScore(score);
+
         }
     }
     // Update is called once per frame

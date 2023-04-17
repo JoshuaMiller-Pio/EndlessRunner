@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - ScoreBox
   - Multiplier
+  - output
   layers:
   - Default
   - TransparentFX
