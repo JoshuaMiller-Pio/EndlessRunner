@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ScoreMultiplier : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ScoreMultiplier : MonoBehaviour
     }
     public bool multiply()
     {
+       
         return multiplyOn;
     }
 
@@ -21,10 +23,12 @@ public class ScoreMultiplier : MonoBehaviour
     {
         multiplyOn = true;
         yield return new WaitForSeconds(30);
-       // StopCoroutine(StartMultiply());
+       
         multiplyOn = false;
         
     }
+
+   
     // Update is called once per frame
     void Update()
     {
