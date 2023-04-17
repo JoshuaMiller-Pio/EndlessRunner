@@ -9,7 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject Player;
     public enum lanes { First, Second, Third};
     public Vector3 spawnPosition;
-    
+    public static List<GameObject> spawnedObjects = new List<GameObject>();
     // Update is called once per frame
     private void Awake()
     {
@@ -47,8 +47,16 @@ public class ObjectSpawner : MonoBehaviour
             {
                 spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
             }
+            foreach (var obj in spawnedObjects) 
+            {
+                if (obj.transform.position == spawnPosition)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + 70);
+                }
+            }
+            
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
-           
+            spawnedObjects.Add( newObject );
             
            // obstaclesSpawned[i] = newObject;
             i++;
