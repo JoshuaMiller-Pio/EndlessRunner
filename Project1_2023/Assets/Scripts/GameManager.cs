@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
 {
   
     [SerializeField]
+
     private TMPro.TextMeshProUGUI DeathText;
     private float playerscore;
     public string Player_Name;
@@ -21,6 +22,7 @@ public class GameManager : Singleton<GameManager>
         get { return playerscore; }   
         set { playerscore = value; }
     }
+
 
 
     // Update is called once per frame
@@ -53,6 +55,7 @@ public class GameManager : Singleton<GameManager>
         DeathText.text = "Score: "+score;
 
     } 
+
 
 
 }
