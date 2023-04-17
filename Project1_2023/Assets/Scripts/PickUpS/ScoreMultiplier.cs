@@ -22,7 +22,7 @@ public class ScoreMultiplier : MonoBehaviour
     public static IEnumerator StartMultiply()
     {
         multiplyOn = true;
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(5);
        
         multiplyOn = false;
         
