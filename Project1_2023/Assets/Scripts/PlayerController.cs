@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private float timeElapsed;
    
     
-    void Start()
+    void Awake()
     {
         _rigComp = GetComponent<Rigidbody>();
         _aniComp = GetComponent<Animator>();
