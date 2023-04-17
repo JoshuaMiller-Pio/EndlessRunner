@@ -51,8 +51,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20.046772, y: 5.775307, z: 1}
-  m_Center: {x: -0.15555, y: 0.03237057, z: 0}
+  m_Size: {x: 20.046772, y: 15.592379, z: 1}
+  m_Center: {x: -0.15555, y: 4.9408746, z: 0}
 --- !u!1 &5991859188722781225
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ Transform:
   m_Children:
   - {fileID: 3897134913618909554}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9182633839111492883
 MeshFilter:

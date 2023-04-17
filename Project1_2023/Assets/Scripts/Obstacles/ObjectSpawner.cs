@@ -33,15 +33,15 @@ public class ObjectSpawner : MonoBehaviour
             int lane = Random.Range(0, 4);
             if (lane == 1 && objToSpwn == 0)
             {
-                spawnPosition = new Vector3(-5.17f, 0.37f, (Player.transform.position.z + 40));
+                spawnPosition = new Vector3(-5.17f, 0.25f, (Player.transform.position.z + 40));
             }
             else if (lane == 2 && objToSpwn == 0)
             {
-                spawnPosition = new Vector3(0.81f, 0.37f, (Player.transform.position.z + 40));
+                spawnPosition = new Vector3(0.81f, 0.25f, (Player.transform.position.z + 40));
             }
             else if (lane == 3 && objToSpwn == 0)
             {
-                spawnPosition = new Vector3(6.58f, 0.37f, (Player.transform.position.z + 40));
+                spawnPosition = new Vector3(6.58f, 0.25f, (Player.transform.position.z + 40));
             }
             else
             {
