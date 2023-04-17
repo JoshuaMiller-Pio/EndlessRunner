@@ -1247,6 +1247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Start: {fileID: 63876121}
   Quit: {fileID: 921833924}
+  DeathText: {fileID: 925074011}
 --- !u!4 &1330599474
 Transform:
   m_ObjectHideFlags: 0

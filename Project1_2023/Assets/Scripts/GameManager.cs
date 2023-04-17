@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.PackageManager;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class GameManager : Singleton<GameManager>
     private Button Start;
     [SerializeField]
     private Button Quit;
+    [SerializeField]
+    private TextMeshProUGUI DeathText;
+    
 
    
     // Update is called once per frame
@@ -35,6 +39,12 @@ public class GameManager : Singleton<GameManager>
     public void GameOver()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void gameoverScore(int score )
+    {
+        Debug.Log(score);
+        DeathText.text = $"Score: {score}";
     }
 
 }
