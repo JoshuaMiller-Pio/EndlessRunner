@@ -25,7 +25,7 @@ public class ObjectSpawner : MonoBehaviour
         
     }
 
-    public  IEnumerator SpawnObject()
+    public IEnumerator SpawnObject()
     {
         int i = 0;
         while (true) 
