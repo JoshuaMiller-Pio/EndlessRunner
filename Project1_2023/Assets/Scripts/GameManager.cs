@@ -54,7 +54,7 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(1);
         foreach (var obj in PickUpSpawn.spawnedPickUps)
         {
-            ObjectSpawner.spawnedObjects.Remove(obj);
+            PickUpSpawn.spawnedPickUps.Remove(obj);
         }
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
        
@@ -63,8 +63,8 @@ public class GameManager : Singleton<GameManager>
             ObjectSpawner.spawnedObjects.Remove(obj);
         }
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
-
         
+
     }
     //loads game over scene
     public void GameOver()

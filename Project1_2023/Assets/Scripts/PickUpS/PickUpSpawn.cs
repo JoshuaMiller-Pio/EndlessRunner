@@ -51,6 +51,12 @@ public class PickUpSpawn : MonoBehaviour
             //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
             foreach (var obj in ObjectSpawner.spawnedObjects)
             {
+                if (obj == null)
+                {
+                    spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 60));
+                    GameObject newSceneObject = Instantiate(ObjectSpawner.spawnedObjects[objToSpwn], spawnPosition, Quaternion.identity);
+                    ObjectSpawner.spawnedObjects.Add(newSceneObject);
+                }
                 if (obj.transform.position.z == spawnPosition.z)
                 {
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
@@ -68,6 +74,12 @@ public class PickUpSpawn : MonoBehaviour
             //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
             foreach (var obj in spawnedPickUps)
             {
+                if (obj == null)
+                {
+                    spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 60));
+                    GameObject newSceneObject = Instantiate(pickUps[objToSpwn], spawnPosition, Quaternion.identity);
+                    spawnedPickUps.Add(newSceneObject);
+                }
                 if (obj.transform.position.z == spawnPosition.z)
                 {
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));

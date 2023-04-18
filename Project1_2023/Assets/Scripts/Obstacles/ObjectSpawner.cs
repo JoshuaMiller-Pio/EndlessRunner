@@ -47,6 +47,18 @@ public class ObjectSpawner : MonoBehaviour
             {
                 spawnPosition = new Vector3(6.58f, 0.25f, (Player.transform.position.z + 40));
             }
+            else if (lane == 1 && objToSpwn == 3)
+            {
+                spawnPosition = new Vector3(-5.17f, 1.57f, (Player.transform.position.z + 40));
+            }
+            else if (lane == 2 && objToSpwn == 3)
+            {
+                spawnPosition = new Vector3(0.81f, 1.57f, (Player.transform.position.z + 40));
+            }
+            else if (lane == 3 && objToSpwn == 3)
+            {
+                spawnPosition = new Vector3(6.58f, 1.57f, (Player.transform.position.z + 40));
+            }
             else
             {
                 spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
@@ -58,6 +70,7 @@ public class ObjectSpawner : MonoBehaviour
                 {
                     spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
                     GameObject newSceneObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
+                    spawnedObjects.Add(newSceneObject);
                 }
                 if (obj.transform.position.z == spawnPosition.z)
                 {
@@ -75,6 +88,12 @@ public class ObjectSpawner : MonoBehaviour
 
             foreach (var obj in PickUpSpawn.spawnedPickUps)
             {
+                if (obj == null)
+                {
+                    spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
+                    GameObject newSceneObject = Instantiate(PickUpSpawn.spawnedPickUps[objToSpwn], spawnPosition, Quaternion.identity);
+                    PickUpSpawn.spawnedPickUps.Add(newSceneObject);
+                }
                 if (obj.transform.position.z == spawnPosition.z)
                 {
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
