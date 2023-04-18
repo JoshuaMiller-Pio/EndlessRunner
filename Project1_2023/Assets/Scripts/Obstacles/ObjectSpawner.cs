@@ -10,6 +10,7 @@ public class ObjectSpawner : MonoBehaviour
     public enum lanes { First, Second, Third};
     public Vector3 spawnPosition;
     public static List<GameObject> spawnedObjects = new List<GameObject>();
+
     // Update is called once per frame
     public void Awake()
     {
@@ -17,6 +18,7 @@ public class ObjectSpawner : MonoBehaviour
         StartCoroutine(SpawnObject());
        
     }
+    
     void Update()
     {
         
