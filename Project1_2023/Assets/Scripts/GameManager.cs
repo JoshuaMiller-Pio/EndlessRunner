@@ -28,6 +28,8 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     void Update()
     {
+        //limits frames to 60
+        Application.targetFrameRate = 60;
         scenecheck();
 
     }
@@ -38,10 +40,13 @@ public class GameManager : Singleton<GameManager>
     }
     public  void onQuitClicked()
     {
+        Debug.Log("quit");
+
         Application.Quit();
     }
     public void onStartClicked()
     {
+        Debug.Log("restart");
         SceneManager.LoadScene(1);
     }
     public void GameOver()
