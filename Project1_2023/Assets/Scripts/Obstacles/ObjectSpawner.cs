@@ -14,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     public void Awake()
     {
-      
+        spawnedObjects = new List<GameObject>();
         StartCoroutine(SpawnObject());
        
     }
@@ -54,6 +54,11 @@ public class ObjectSpawner : MonoBehaviour
             //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
             foreach (var obj in spawnedObjects) 
             {
+                if(obj == null)
+                {
+                    spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
+                    GameObject newSceneObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
+                }
                 if (obj.transform.position.z == spawnPosition.z)
                 {
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40,70));

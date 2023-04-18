@@ -13,7 +13,7 @@ public class PickUpSpawn : MonoBehaviour
     // Update is called once per frame
     private void Awake()
     {
-
+        spawnedPickUps = new List<GameObject>();
         StartCoroutine(SpawnPickUp());
 
     }
