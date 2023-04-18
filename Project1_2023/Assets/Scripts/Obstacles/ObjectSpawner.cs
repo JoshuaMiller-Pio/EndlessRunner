@@ -14,6 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     // Update is called once per frame
     public void Awake()
     {
+        GameManager.rePlay();
         spawnedObjects = new List<GameObject>();
         StartCoroutine(SpawnObject());
        
