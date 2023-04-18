@@ -7,7 +7,7 @@ public class ScoreMultiplier : MonoBehaviour
 {
     public static bool multiplyOn;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         multiplyOn = false;
     }
@@ -23,7 +23,7 @@ public class ScoreMultiplier : MonoBehaviour
     {
         
         multiplyOn = true;
-        Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+      
         yield return new WaitForSeconds(5);
        
         multiplyOn = false;
