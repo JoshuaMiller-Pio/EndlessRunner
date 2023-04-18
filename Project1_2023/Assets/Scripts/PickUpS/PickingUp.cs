@@ -18,8 +18,23 @@ public class PickingUp : MonoBehaviour
         {
 
             Debug.Log("multiply");
+            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
-          Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+           
+
+
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Multiplier")
+        {
+
+            Debug.Log("multiply");
+            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            StartCoroutine(ScoreMultiplier.StartMultiply());
+
 
 
         }

@@ -21,7 +21,9 @@ public class ScoreMultiplier : MonoBehaviour
     //
     public static IEnumerator StartMultiply()
     {
+        
         multiplyOn = true;
+        Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
         yield return new WaitForSeconds(5);
        
         multiplyOn = false;
