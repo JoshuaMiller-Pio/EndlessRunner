@@ -47,6 +47,8 @@ public class GameManager : Singleton<GameManager>
     public void onStartClicked()
     {
         Debug.Log("restart");
+        PickUpSpawn.spawnedPickUps.Clear();
+        ObjectSpawner.spawnedObjects.Clear();
         SceneManager.LoadScene(1);
     }
     public void GameOver()

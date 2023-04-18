@@ -12,7 +12,7 @@ public class PickingUp : MonoBehaviour
     }
 
     //when the player collides with the hitbox of the power up then the effect is activated
-   /* private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if ( collision.gameObject.tag == "Multiplier")
         {
@@ -26,7 +26,7 @@ public class PickingUp : MonoBehaviour
 
 
         }
-    }*/
+    }
 
     private void OnCollisionStay(Collision collision)
     {
