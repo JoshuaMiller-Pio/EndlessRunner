@@ -12,27 +12,30 @@ public class PickingUp : MonoBehaviour
     }
 
     //when the player collides with the hitbox of the power up then the effect is activated
-    private void OnCollisionEnter(Collision collision)
+   /* private void OnCollisionEnter(Collision collision)
     {
         if ( collision.gameObject.tag == "Multiplier")
         {
-
+            GameObject currentPickUp = collision.gameObject;
             Debug.Log("multiply");
-            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            Destroy(currentPickUp);
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
+            //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
            
 
 
         }
-    }
+    }*/
 
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Multiplier")
         {
-
+            GameObject currentPickUp = collision.gameObject;
             Debug.Log("multiply");
-            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            Destroy(currentPickUp);
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
             StartCoroutine(ScoreMultiplier.StartMultiply());
 
 
@@ -44,9 +47,10 @@ public class PickingUp : MonoBehaviour
     {
         if(other.tag == "Multiplier")
         {
+            GameObject currentPickUp = other.gameObject;
             //deletes the first instance of the tag within the list else it destroys all of them ahead of the player as well
             Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-            
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
         }
     }
 

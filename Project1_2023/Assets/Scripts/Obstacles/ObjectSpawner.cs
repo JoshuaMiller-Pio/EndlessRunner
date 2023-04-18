@@ -11,7 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     public Vector3 spawnPosition;
     public static List<GameObject> spawnedObjects = new List<GameObject>();
     // Update is called once per frame
-    private void Start()
+    private void Awake()
     {
       
         StartCoroutine(SpawnObject());
@@ -65,7 +65,22 @@ public class ObjectSpawner : MonoBehaviour
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
                 }
             }
-            
+
+            foreach (var obj in PickUpSpawn.spawnedPickUps)
+            {
+                if (obj.transform.position.z == spawnPosition.z)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
+                }
+                if (obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
+                }
+                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
+                {
+                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
+                }
+            }
             //Instantiates a new object at the final spawn position
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
 

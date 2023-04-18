@@ -9,7 +9,7 @@ public class PickUpSpawn : MonoBehaviour
     public GameObject Player;
     public enum lanes { First, Second, Third };
     public Vector3 spawnPosition;
-
+    public static List<GameObject> spawnedPickUps = new List<GameObject>();
     // Update is called once per frame
     private void Awake()
     {
@@ -67,8 +67,8 @@ public class PickUpSpawn : MonoBehaviour
 
             GameObject newObject = Instantiate(pickUps[objToSpwn], spawnPosition, Quaternion.identity);
 
+            spawnedPickUps.Add(newObject);
 
-           
             i++;
             yield return new WaitForSeconds(spawnRate);
 
