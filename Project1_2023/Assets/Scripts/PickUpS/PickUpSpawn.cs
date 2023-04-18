@@ -30,7 +30,7 @@ public class PickUpSpawn : MonoBehaviour
 
             int objToSpwn = Random.Range(0, pickUps.Length);
 
-            int spawnRate = Random.Range(10, 20);
+            int spawnRate = Random.Range(5, 10);
 
             int lane = Random.Range(0, 4);
 
