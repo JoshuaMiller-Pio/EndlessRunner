@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     private float playerscore;
     public string Player_Name;
 
+    //this Property allows other scripts to assign the player score to it
     public float Playerscore   
     {
         get { return playerscore; }   
@@ -30,6 +32,7 @@ public class GameManager : Singleton<GameManager>
     {
         //limits frames to 60
         Application.targetFrameRate = 60;
+        //this checks what the current scene is
         scenecheck();
 
     }
@@ -38,12 +41,13 @@ public class GameManager : Singleton<GameManager>
 
 
     }
+    //once called it closes the application
     public  void onQuitClicked()
     {
-        Debug.Log("quit");
 
         Application.Quit();
     }
+    //Once called it it clears the spawnedpickups and spawnedobjects list and loads the 2nd scene
     public void onStartClicked()
     {
         Debug.Log("restart");
@@ -62,13 +66,14 @@ public class GameManager : Singleton<GameManager>
 
         
     }
+    //loads game over scene
     public void GameOver()
     {
         SceneManager.LoadScene(2);
 
     }
 
-       
+       //if is current scene is game over it calls the game over score
     public void scenecheck()
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -77,22 +82,13 @@ public class GameManager : Singleton<GameManager>
         }
     }
     public void gameoverScore( )
-    {
-
-        //does it from scene 1 thats why
-       
-        
+    { 
+        //assigns the deathtext tmpui component to the DeathScore_Txt box on the scene and updates the score that the player had
             DeathText = GameObject.Find("DeathScore_Txt").GetComponent<TextMeshProUGUI>();
             DeathText.text = $"score: {playerscore}";
-        
-        
 
     }
-    IEnumerator deathScore(int score)
-    {
-       
-        yield return null; 
-    }
+  
 
 
 

@@ -17,6 +17,7 @@ public class Buttons : MonoBehaviour
     {
         
     }
+    //on awake the buttons are given a listener that will either call the quit or start method in the game managers
     void Awake()
 
     {
@@ -27,10 +28,6 @@ public class Buttons : MonoBehaviour
 
     }
     
-    private void buttonPRess()
-    {
-       
-    }
-
+  
 
 }

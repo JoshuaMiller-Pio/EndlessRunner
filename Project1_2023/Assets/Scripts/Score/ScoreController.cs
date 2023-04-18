@@ -15,22 +15,26 @@ public class ScoreController : MonoBehaviour
         
     }
 
+    //if the delete trigger exits the object the score counter goes up
     private void OnTriggerExit(Collider other)
     {
         if(other.tag == "ScoreBox" )
         {
+            //if player has a multiplier on then score is doubled
             if(ScoreMultiplier.multiplyOn == true)
             {
-                score = score + 2;
+                score +=  2;
             }
             else
             {
-                score = score + 1;
+                score += 1;
                 StopCoroutine(ScoreMultiplier.StartMultiply());
             }
             
         }
     }
+
+    //once the player collides with an object the final score is sent to player 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Obstacle")
