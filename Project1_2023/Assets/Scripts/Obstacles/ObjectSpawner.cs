@@ -11,7 +11,7 @@ public class ObjectSpawner : MonoBehaviour
     public Vector3 spawnPosition;
     public static List<GameObject> spawnedObjects = new List<GameObject>();
     // Update is called once per frame
-    private void Awake()
+    public void Awake()
     {
       
         StartCoroutine(SpawnObject());
