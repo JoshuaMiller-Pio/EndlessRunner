@@ -57,12 +57,14 @@ public class GameManager : Singleton<GameManager>
             PickUpSpawn.spawnedPickUps.Remove(obj);
         }
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-       
+
         foreach (var obj in ObjectSpawner.spawnedObjects)
         {
             ObjectSpawner.spawnedObjects.Remove(obj);
         }
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
+       
+        
         
 
     }
@@ -89,6 +91,10 @@ public class GameManager : Singleton<GameManager>
 
     }
   
+    public static void rePlay()
+    {
+        
+    }
 
 
 
