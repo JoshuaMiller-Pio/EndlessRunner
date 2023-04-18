@@ -14,13 +14,13 @@ public class Buttons : MonoBehaviour
     // Update is called once per frame
      void Update()
     {
-        Quit.onClick.AddListener(GameManager.Instance.onQuitClicked);
-        Start.onClick.AddListener(GameManager.Instance.onStartClicked);
+        
     }
     void Awake()
     {
- 
 
+        Quit.onClick.AddListener(GameManager.Instance.onQuitClicked);
+        Start.onClick.AddListener(GameManager.Instance.onStartClicked);
     }
     
     private void buttonPRess()
