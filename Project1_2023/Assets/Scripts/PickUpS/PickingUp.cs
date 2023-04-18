@@ -16,9 +16,11 @@ public class PickingUp : MonoBehaviour
     {
         if ( collision.gameObject.tag == "Multiplier")
         {
-
+            GameObject currentPickUp = collision.gameObject;
             Debug.Log("multiply");
-            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            Destroy(currentPickUp);
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
+            //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
            
 
@@ -30,9 +32,10 @@ public class PickingUp : MonoBehaviour
     {
         if (collision.gameObject.tag == "Multiplier")
         {
-
+            GameObject currentPickUp = collision.gameObject;
             Debug.Log("multiply");
-            Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            Destroy(currentPickUp);
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
             StartCoroutine(ScoreMultiplier.StartMultiply());
 
 
@@ -44,9 +47,10 @@ public class PickingUp : MonoBehaviour
     {
         if(other.tag == "Multiplier")
         {
+            GameObject currentPickUp = other.gameObject;
             //deletes the first instance of the tag within the list else it destroys all of them ahead of the player as well
             Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-            
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
         }
     }
 
