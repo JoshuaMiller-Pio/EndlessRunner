@@ -124,8 +124,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            ObjectSpawner.spawnedObjects.Clear();
-            OnPlayerDeath();
+            if (Shield.isShielded() == false)
+            {
+                ObjectSpawner.spawnedObjects.Clear();
+                OnPlayerDeath();
+            }
+            
         }
     }
 
