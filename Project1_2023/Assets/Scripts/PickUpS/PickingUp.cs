@@ -27,6 +27,19 @@ public class PickingUp : MonoBehaviour
 
 
         }
+        if (collision.gameObject.tag == "ShieldPickUp")
+        {
+            GameObject currentPickUp = collision.gameObject;
+            Debug.Log("Shield");
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
+            Destroy(currentPickUp);
+
+            //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            StartCoroutine(Shield.StartShield());
+
+
+
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -55,6 +68,8 @@ public class PickingUp : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             
         }
+
+
     }
 
     // Update is called once per frame
