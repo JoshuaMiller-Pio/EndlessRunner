@@ -12,6 +12,7 @@ public class Shield : MonoBehaviour
     void Awake()
     {
         shielded = false;
+        playersShield = GameObject.FindGameObjectWithTag("PlayerShield");
         playersShield.SetActive(false);
     }
     public static bool isShielded()
