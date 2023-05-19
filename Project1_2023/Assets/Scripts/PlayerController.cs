@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour
     private Animator _aniComp = new Animator();
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
-   
+    public GameObject bulletPrefab;
+    public GameObject bulletSpawn;
     
     void Start()
-    {
+    {    
+
         //creates new objects and adds components
           player = new GameObject();
         _rigComp = GetComponent<Rigidbody>();
@@ -38,11 +40,11 @@ public class PlayerController : MonoBehaviour
         //calls the lerpmove() method
         lerpmove();
 
-        if (Input.GetMouseButtonDown(0) && Bullet.isStrapped() == true)
+        if (Input.GetMouseButtonDown(0) && GunPickUp.isStrapped() == true)
         {
-           
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+            GunPickUp.Shoot();
 
-            
         }
 
     }
