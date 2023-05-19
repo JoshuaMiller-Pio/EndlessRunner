@@ -10,6 +10,8 @@ TagManager:
   - ScoreBox
   - Multiplier
   - output
+  - PlayerShield
+  - ShieldPickUp
   layers:
   - Default
   - TransparentFX

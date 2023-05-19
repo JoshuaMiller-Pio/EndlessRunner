@@ -37,7 +37,13 @@ public class PlayerController : MonoBehaviour
 
         //calls the lerpmove() method
         lerpmove();
-  
+
+        if (Input.GetMouseButtonDown(0) && Bullet.isStrapped() == true)
+        {
+           
+
+            
+        }
 
     }
 
@@ -124,8 +130,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            ObjectSpawner.spawnedObjects.Clear();
-            OnPlayerDeath();
+            if (Shield.isShielded() == false)
+            {
+                ObjectSpawner.spawnedObjects.Clear();
+                OnPlayerDeath();
+            }
+            
         }
     }
 
