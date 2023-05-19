@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 3091618522385061844, guid: 51f1210e9e5b2314dabfa90b9fee9c24, type: 3}
   - {fileID: 5991859188722781225, guid: dcf46e3bf9440db41bad929c5bb0bda7, type: 3}
   - {fileID: 8249491095416257607, guid: bfa63843aaf3c8143bb49870ea043221, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 1549679857}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &160476300
 GameObject:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96e9936297971d419558aa057c9e0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1549679857}
 --- !u!1 &458252863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1455,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1549679857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8425567399836245583, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+  m_PrefabInstance: {fileID: 8920032823577539296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1631029788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1612,7 @@ MonoBehaviour:
   pickUps:
   - {fileID: 5607217676150430163, guid: ecee30d759d7373459bec564bd0c1b57, type: 3}
   - {fileID: 1036791530749857075, guid: f39c71259aed7564298df049009ade7e, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 1549679857}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2032035467
 GameObject:
@@ -1653,7 +1658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f31de253129c20459b58376666d2cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1549679857}
   ScoreText: {fileID: 598636702}
   score: 0
 --- !u!1001 &8920032823577539296
