@@ -23,10 +23,8 @@ public class PickingUp : MonoBehaviour
             
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
-           
-
-
         }
+
         if (collision.gameObject.tag == "ShieldPickUp")
         {
             GameObject currentPickUp = collision.gameObject;
@@ -36,9 +34,17 @@ public class PickingUp : MonoBehaviour
 
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(Shield.StartShield());
+        }
 
+        if (collision.gameObject.tag == "GunPickUp")
+        {
+            GameObject currentPickUp = collision.gameObject;
+            Debug.Log("Gun");
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
+            Destroy(currentPickUp);
 
-
+            //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+            GunPickUp.GotGun();
         }
     }
 

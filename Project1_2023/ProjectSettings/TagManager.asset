@@ -12,6 +12,7 @@ TagManager:
   - output
   - PlayerShield
   - ShieldPickUp
+  - GunPickUp
   layers:
   - Default
   - TransparentFX

@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 357080842}
   - component: {fileID: 357080843}
   - component: {fileID: 357080844}
+  - component: {fileID: 357080845}
   m_Layer: 0
   m_Name: PickUpManager
   m_TagString: Untagged
@@ -469,6 +470,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1549679857}
+--- !u!114 &357080845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357080841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09664a9f50280ec498de2385c57075d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1549679857}
+--- !u!1 &408038008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408038009}
+  m_Layer: 0
+  m_Name: emptyBulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408038009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408038008}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.18800002, y: 1.44, z: 0.5119972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1549679864}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458252863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1505,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8425567399836245583, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
   m_PrefabInstance: {fileID: 8920032823577539296}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1549679864 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9198162727399949557, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+  m_PrefabInstance: {fileID: 8920032823577539296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1631029788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1662,7 @@ MonoBehaviour:
   pickUps:
   - {fileID: 5607217676150430163, guid: ecee30d759d7373459bec564bd0c1b57, type: 3}
   - {fileID: 1036791530749857075, guid: f39c71259aed7564298df049009ade7e, type: 3}
+  - {fileID: 2666240019918088518, guid: 0cd9e880b130fb94c9ff5e4fe32e03d1, type: 3}
   Player: {fileID: 1549679857}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2032035467
@@ -1669,6 +1720,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 408038008}
+    - target: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 8498272790364628870, guid: d9fbaa2575c77b24db8aceb508bf6450, type: 3}
     - target: {fileID: 8425567399836245583, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -1719,6 +1778,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 9198162727399949557, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 408038009}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
