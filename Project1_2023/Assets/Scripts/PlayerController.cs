@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //does a raycast that checks if the player is on the ground and returns a boolean value
-    private  bool isgrounded()
+    public  bool isgrounded()
     {
         return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.1f)); 
     }
