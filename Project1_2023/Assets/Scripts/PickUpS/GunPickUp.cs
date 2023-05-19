@@ -21,7 +21,7 @@ public class GunPickUp : MonoBehaviour
     public static void GotGun()
     {
         strapped =true;
-        ammo = 3;
+        ammo = ammo + 3;
     }
     public static void Shoot()
     {
