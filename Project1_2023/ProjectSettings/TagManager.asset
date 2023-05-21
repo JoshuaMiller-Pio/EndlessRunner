@@ -15,6 +15,7 @@ TagManager:
   - GunPickUp
   - AmmoCount
   - ImageX2
+  - ImageShield
   layers:
   - Default
   - TransparentFX
