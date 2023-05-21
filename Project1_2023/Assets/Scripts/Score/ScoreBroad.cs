@@ -9,6 +9,8 @@ public class ScoreBroad : MonoBehaviour
     public  GameObject Player;
     public  TMP_Text ScoreText;
     public  int score;
+    public int ammoCount;
+    public TMP_Text ammoText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,7 @@ public class ScoreBroad : MonoBehaviour
     {
         score = Player.GetComponent<ScoreController>().score;
         ScoreText.text = "Score: " + score;
+        ammoCount = GunPickUp.ammo;
+        ammoText.text = "Ammo: " + ammoCount.ToString();
     }
 }

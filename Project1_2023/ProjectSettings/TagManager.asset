@@ -13,6 +13,8 @@ TagManager:
   - PlayerShield
   - ShieldPickUp
   - GunPickUp
+  - AmmoCount
+  - ImageX2
   layers:
   - Default
   - TransparentFX
