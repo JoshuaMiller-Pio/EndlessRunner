@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         //constant movement on the z-axis
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
 
-        //calls the lerpmove() method
-        lerpmove();
+        //calls the ButtonMovement() method
+        ButtonMovement();
 
         if (Input.GetMouseButtonDown(0) && GunPickUp.isStrapped() == true)
         {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
 
     #region MOVEMENT
-    public void lerpmove()
+    public void ButtonMovement()
     {
         //gets the current position of the player
         UnityEngine.Vector3 playerPos = transform.position;
@@ -86,13 +86,13 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z + 10);
             UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, transform.position.y, transform.position.z + 10);
 
-            if (playerPos.x == middle)
+            if (playerPos.x == middle )
             {
                 //starts the lerp coroutine that moves the player from the middle lane to the left lane
                 StartCoroutine(MoveLerp(LeftTarget));
 
             }
-            else if (playerPos.x == right)
+            else if (playerPos.x == right )
             //starts the lerp coroutine that moves the player from the right lane to the middle lane
             {
                 StartCoroutine(MoveLerp(MiddleTarget));
@@ -109,14 +109,14 @@ public class PlayerController : MonoBehaviour
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z +10);
             UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z+10);
 
-            if (playerPos.x == middle)
+            if (playerPos.x == middle )
             {
                 //starts the lerp coroutine that moves the player from the middle lane to the right lane
 
                 StartCoroutine(MoveLerp(RightTarget));
 
             }
-            else if (playerPos.x == left)
+            else if (playerPos.x == left )
             {
                 //starts the lerp coroutine that moves the player from the left lane to the middle lane
 
