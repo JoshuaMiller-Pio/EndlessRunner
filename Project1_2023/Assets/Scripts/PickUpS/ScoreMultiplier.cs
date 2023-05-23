@@ -8,6 +8,7 @@ public class ScoreMultiplier : MonoBehaviour
 {
     public static bool multiplyOn;
     public static GameObject multiplyUI;
+   
     // Start is called before the first frame update
     void Awake()
     {
