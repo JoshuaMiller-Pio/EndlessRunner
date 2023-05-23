@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
         //constant movement on the z-axis
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
@@ -67,14 +68,14 @@ public class PlayerController : MonoBehaviour
         {
             _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, 5, _rigComp.velocity.z);
             //the jump animation is called
-            Jump();
+            JumpTrue();
         }
 
             //will switch the character between the axis
         if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
             //the roll left animation is called
-            rollleft();
+            rollleftTrue();
 
             //the middle and left lane is given a vecoter3 variable and coordinates
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z + 10);
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
-            rollRight();
+            rollrightTrue();
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z +10);
             UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z+10);
 
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour
     //does a raycast that checks if the player is on the ground and returns a boolean value
     public  bool isgrounded()
     {
-        return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.1f)); 
+        return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.001f));
     }
 
 
@@ -174,48 +175,69 @@ public class PlayerController : MonoBehaviour
     }
 
     //the rest are animatin calls
-    public void Jump()
+    #region ANIMATION CALLS
+    public void JumpTrue()
     {
        if(!_aniComp.GetBool("isJumping"))
        {
-        _aniComp.SetBool("isJumping", true);
+            _aniComp.SetBool("isJumping", true);
+            rollleftFalse();
+            rollRightFalse();
 
+           
        }
-       else
-       {
-            _aniComp.SetBool("isJumping", false);
-       }
+      
 
 
     }
-    public void rollleft()
+    public void JumpFalse()
+    {
+      
+            _aniComp.SetBool("isJumping", false);
+        
+    }
+
+
+    public void rollleftTrue()
     {
         if (!_aniComp.GetBool("rollLeft"))
         {
             _aniComp.SetBool("rollLeft", true);
+            JumpFalse();
+            rollRightFalse();
 
-        }
-        else
-        {
-            _aniComp.SetBool("rollLeft", false);
         }
         
-
     }
-    public void rollRight()
+
+    public void rollleftFalse()
+    {
+          
+            _aniComp.SetBool("rollLeft", false);
+        
+    }
+
+
+
+    public void rollrightTrue()
     {
         
         if (!_aniComp.GetBool("rollRight") )
         {
             _aniComp.SetBool("rollRight", true);
+            rollleftFalse();
+            JumpFalse();
         }
-        else
-        {
-            _aniComp.SetBool("rollRight", false);
-        }
+       
     }
 
 
+    public void rollRightFalse()
+    {
+        _aniComp.SetBool("rollRight", false);
 
+    }
+
+    #endregion
 
 }
