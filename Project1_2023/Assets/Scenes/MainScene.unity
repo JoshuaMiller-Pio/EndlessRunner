@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3091618522385061844, guid: 51f1210e9e5b2314dabfa90b9fee9c24, type: 3}
+  - {fileID: 4683912499592480948, guid: 295b66a57a5992a4ea4d67e8a57bff58, type: 3}
   - {fileID: 5991859188722781225, guid: dcf46e3bf9440db41bad929c5bb0bda7, type: 3}
   - {fileID: 8249491095416257607, guid: bfa63843aaf3c8143bb49870ea043221, type: 3}
   Player: {fileID: 1549679857}

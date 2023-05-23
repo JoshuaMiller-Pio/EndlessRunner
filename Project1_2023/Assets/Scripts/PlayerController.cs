@@ -52,12 +52,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
+    #region MOVEMENT
     public void lerpmove()
     {
         //gets the current position of the player
         UnityEngine.Vector3 playerPos = transform.position;
+
         float middle, right, left;  
+
         //the x values of the players lanes
         middle = .81f;
         right = 6.58f;
@@ -127,13 +129,35 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    IEnumerator MoveLerp(UnityEngine.Vector3 TargetPos)
+    {
+        float time = 0;
+        //this get the players current position on the track
+        UnityEngine.Vector3 CurrentPos = transform.position;
+
+        //while time is less than 1 second the loop will continue, the player will slowly slide across the gap to the next lane
+        while (time < 1)
+        {
+            transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
+            time += Time.deltaTime;
+            //this stops the coroutine until the next frame
+            yield return null;
+        }
+        //at the end of the while this will snap the player to the target position
+        transform.position = TargetPos;
+
+    }
+
     //does a raycast that checks if the player is on the ground and returns a boolean value
     public  bool isgrounded()
     {
         return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.001f));
     }
 
+#endregion
 
+
+    #region GAMEOVER
 
     //if the player touches a object with the tag obstacle the object spawner list is cleared and the player OnplayerDeath method is called
     private void OnCollisionEnter(Collision collision)
@@ -152,33 +176,11 @@ public class PlayerController : MonoBehaviour
     // this method calls the gamemanager game over method which switches scenes
     private void OnPlayerDeath()
     {
-
-       
-    
         GameManager.Instance.GameOver();
-
-
     }
 
+    #endregion
 
-    IEnumerator MoveLerp( UnityEngine.Vector3 TargetPos)
-    {
-        float time = 0;
-        //this get the players current position on the track
-        UnityEngine.Vector3 CurrentPos = transform.position;
-
-        //while time is less than 1 second the loop will continue, the player will slowly slide across the gap to the next lane
-        while(time < 1)
-        {
-            transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
-            time += Time.deltaTime;
-            //this stops the coroutine until the next frame
-            yield return null;
-        }
-      //at the end of the while this will snap the player to the target position
-         transform.position = TargetPos;
-        
-    }
 
     //the rest are animatin calls
     #region ANIMATION CALLS
@@ -186,6 +188,7 @@ public class PlayerController : MonoBehaviour
     {
        if(!_aniComp.GetBool("isJumping"))
        {
+            JumpFalse();
             _aniComp.SetBool("isJumping", true);
             rollleftFalse();
             rollRightFalse();
@@ -208,6 +211,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_aniComp.GetBool("rollLeft"))
         {
+            rollleftFalse();
             _aniComp.SetBool("rollLeft", true);
             JumpFalse();
             rollRightFalse();
@@ -230,6 +234,7 @@ public class PlayerController : MonoBehaviour
         
         if (!_aniComp.GetBool("rollRight") )
         {
+            rollRightFalse();
             _aniComp.SetBool("rollRight", true);
             rollleftFalse();
             JumpFalse();
