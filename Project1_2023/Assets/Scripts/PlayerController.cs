@@ -75,7 +75,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown("a") || Input.GetKeyDown("left"))
         {
             //the roll left animation is called
-            rollleftTrue();
+            if (!_aniComp.GetBool("isJumping"))
+            {
+                rollleftTrue();
+            }
 
             //the middle and left lane is given a vecoter3 variable and coordinates
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z + 10);
@@ -97,7 +100,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("d") || Input.GetKeyDown("right"))
         {
-            rollrightTrue();
+            if (!_aniComp.GetBool("isJumping"))
+            {
+                rollrightTrue();
+            }
             UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z +10);
             UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z+10);
 
