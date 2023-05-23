@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
     //the rest are animatin calls
     public void Jump()
     {
-       if(_aniComp.GetBool("isJumping") == false)
+       if(!_aniComp.GetBool("isJumping"))
        {
         _aniComp.SetBool("isJumping", true);
 
@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     }
     public void rollleft()
     {
-        if (_aniComp.GetBool("rollLeft") == false)
+        if (!_aniComp.GetBool("rollLeft"))
         {
             _aniComp.SetBool("rollLeft", true);
 
@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
     public void rollRight()
     {
         
-        if (_aniComp.GetBool("rollRight") == false)
+        if (!_aniComp.GetBool("rollRight") )
         {
             _aniComp.SetBool("rollRight", true);
         }
