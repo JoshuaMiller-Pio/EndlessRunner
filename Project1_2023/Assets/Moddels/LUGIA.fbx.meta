@@ -3,7 +3,42 @@ guid: 955a9e2885a91404bacfc4a6fcc61fd1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BODYTEXTURE
+    second: {fileID: 2100000, guid: 7ef501bac6a09d2469d3e0cb7b5217f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye streaks
+    second: {fileID: 2100000, guid: 81996495f0d9b234c966913cfc8adcfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gill covers
+    second: {fileID: 2100000, guid: da6a7904c3ec46540b6b32a6f7183ef2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iris
+    second: {fileID: 2100000, guid: e65ac5442c68a594398c4da721ed563f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 8445abeb4dfe0bd48beba0c712b080f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Quads
+    second: {fileID: 2100000, guid: 0c183058a8b551c4e87139bd3ca0ef90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tail flaps
+    second: {fileID: 2100000, guid: d745f9aa4e98c454ab1f47283cb21211, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
