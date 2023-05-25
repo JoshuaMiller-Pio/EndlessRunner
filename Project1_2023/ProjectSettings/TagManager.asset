@@ -16,6 +16,7 @@ TagManager:
   - AmmoCount
   - ImageX2
   - ImageShield
+  - Boss
   layers:
   - Default
   - TransparentFX

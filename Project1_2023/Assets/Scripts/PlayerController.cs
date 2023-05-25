@@ -37,7 +37,9 @@ public class PlayerController : MonoBehaviour
 
     {
         //constant movement on the z-axis
+
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
+
 
         //calls the ButtonMovement() method
         ButtonMovement();
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+  
 
     #region MOVEMENT
     public void ButtonMovement()
