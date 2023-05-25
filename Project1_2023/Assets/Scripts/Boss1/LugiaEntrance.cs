@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class LugiaEntrance : MonoBehaviour
 {
-    public  Transform transform_comp;
+    private Transform EntranceRotate;
     // Start is called before the first frame update
-    void  Start()
+    void  Awake()
     {
-        transform_comp = GetComponent<Transform>();
-
+        EntranceRotate = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -21,6 +20,6 @@ public class LugiaEntrance : MonoBehaviour
 
     void EntranceRotation()
     {
-        transform_comp.Rotate(0,0,0, Space.Self);
+        EntranceRotate.rotation = Quaternion.Lerp(0,0,0);
     }
 }
