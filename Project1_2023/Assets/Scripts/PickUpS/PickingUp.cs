@@ -12,12 +12,12 @@ public class PickingUp : MonoBehaviour
     }
 
     //when the player collides with the hitbox of the power up then the effect is activated
-   private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ( collision.gameObject.tag == "Multiplier")
+        if ( other.gameObject.tag == "Multiplier")
         {
-            GameObject currentPickUp = collision.gameObject;
-            Debug.Log("multiply");
+            GameObject currentPickUp = other.gameObject;
+   
             PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
             Destroy(currentPickUp);
             
@@ -25,10 +25,10 @@ public class PickingUp : MonoBehaviour
             StartCoroutine(ScoreMultiplier.StartMultiply());
         }
 
-        if (collision.gameObject.tag == "ShieldPickUp")
+        if (other.gameObject.tag == "ShieldPickUp")
         {
-            GameObject currentPickUp = collision.gameObject;
-            Debug.Log("Shield");
+            GameObject currentPickUp = other.gameObject;
+       
             PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
             Destroy(currentPickUp);
 
@@ -36,10 +36,10 @@ public class PickingUp : MonoBehaviour
             StartCoroutine(Shield.StartShield());
         }
 
-        if (collision.gameObject.tag == "GunPickUp")
+        if (other.gameObject.tag == "GunPickUp")
         {
-            GameObject currentPickUp = collision.gameObject;
-            Debug.Log("Gun");
+            GameObject currentPickUp = other.gameObject;
+        
             PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
             Destroy(currentPickUp);
 
@@ -64,7 +64,7 @@ public class PickingUp : MonoBehaviour
         }
     }
     //when the deleter trigger collids with the object it is deleted
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Multiplier")
         {
@@ -76,7 +76,7 @@ public class PickingUp : MonoBehaviour
         }
 
 
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

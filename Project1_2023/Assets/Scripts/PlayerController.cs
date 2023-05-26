@@ -18,8 +18,7 @@ public class PlayerController : MonoBehaviour
     private Animator _aniComp = new Animator();
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
-    public GameObject bulletPrefab;
-    public GameObject bulletSpawn;
+    public GameObject bulletPrefab, bulletSpawn, Lugia;
    
     void Start()
     {    
@@ -29,6 +28,7 @@ public class PlayerController : MonoBehaviour
         _rigComp = GetComponent<Rigidbody>();
         _aniComp = GetComponent<Animator>();
         _colliderComp = GetComponent<CapsuleCollider>();
+        GameManager.Instance.lugia = Lugia;
 
     }
 
@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
 
     {
         //constant movement on the z-axis
-
         _rigComp.velocity = new UnityEngine.Vector3(_rigComp.velocity.x, _rigComp.velocity.y, 10);
 
 
@@ -153,34 +152,50 @@ public class PlayerController : MonoBehaviour
     //does a raycast that checks if the player is on the ground and returns a boolean value
     public  bool isgrounded()
     {
-        return Physics.Raycast(transform.position, -UnityEngine.Vector3.up, (_colliderComp.bounds.extents.y  + 0.001f));
+        return Physics.Raycast(transform.position, -transform.up, 0.1f);
+        
     }
 
-#endregion
+    #endregion
 
 
-    #region GAMEOVER
+    #region Collision Evenets
 
     //if the player touches a object with the tag obstacle the object spawner list is cleared and the player OnplayerDeath method is called
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle" && !Shield.isShielded() || (collision.gameObject.tag == "FireBall" && isgrounded() && !Shield.isShielded()))
         {
-            if (Shield.isShielded() == false)
-            {
                 ObjectSpawner.spawnedObjects.Clear();
                 OnPlayerDeath();
-            }
-            
+
+        } 
+
+      
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.gameObject.tag == "FireBall" || Shield.isShielded()) && !isgrounded() )
+        {
+
+            GameObject fireballReturn = other.gameObject;
+            Rigidbody FireComp = fireballReturn.GetComponent<Rigidbody>();
+            FireComp.AddForce(0, 13, 50, ForceMode.Impulse);
+
+
         }
     }
 
+
+
+    #endregion
+    #region GameOver
     // this method calls the gamemanager game over method which switches scenes
     private void OnPlayerDeath()
     {
         GameManager.Instance.GameOver();
     }
-
     #endregion
 
 

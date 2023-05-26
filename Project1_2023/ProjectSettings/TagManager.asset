@@ -17,6 +17,7 @@ TagManager:
   - ImageX2
   - ImageShield
   - Boss
+  - FireBall
   layers:
   - Default
   - TransparentFX

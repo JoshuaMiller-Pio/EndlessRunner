@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LugiaAttack : MonoBehaviour
 {
+    public GameObject FireballSpawner, FireBall;
     float time= 5f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+ 
 
     // Update is called once per frame
     void Update()
@@ -17,11 +15,13 @@ public class LugiaAttack : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            Fireball();
+            FireAttack();
+            time = 5f;
         }
     }
-   void Fireball()
+   void FireAttack()
    {
-
-   }
+        Rigidbody fireballComp = Instantiate(FireBall, FireballSpawner.transform.position, transform.rotation).GetComponent<Rigidbody>();
+        fireballComp.AddForce(0, -5, -10, ForceMode.Impulse);
+    }
 }

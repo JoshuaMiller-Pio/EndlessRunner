@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,9 +9,11 @@ public class LugiaController : MonoBehaviour
 {
    static Rigidbody RigComp;
     float timer = 2.5f;
+    float health = 5;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, (GameObject.FindGameObjectWithTag("PlayerChar").transform.position.z - 3.78f) );
         RigComp = GetComponent<Rigidbody>();
 
     }
@@ -24,7 +27,36 @@ public class LugiaController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "FireBall" )
+        {
+            onDamageTaken();
+            Destroy(other.gameObject);
+            Debug.Log("hit");
+        }
+    }
 
+    #region Damage
+
+
+    private void onDamageTaken()
+    { 
+        health -= 1;
+        if (health <= 0)
+        {
+            onDeath();
+        }
+    }
+
+    private void onDeath()
+    {
+        GameManager.Instance.levelWin();
+    }
+
+    #endregion
+
+    #region Movement
     public static void BaseMove()
     {
         RigComp.velocity = new Vector3(0, 0, 9.9f);
@@ -61,4 +93,5 @@ public class LugiaController : MonoBehaviour
         BaseMove();
 
     }
+    #endregion
 }

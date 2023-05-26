@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
 
     private TMPro.TextMeshProUGUI DeathText;
+    public GameObject lugia;
     private float playerscore;
     public string Player_Name;
+    private bool bossActive = false;
+
 
     //this Property allows other scripts to assign the player score to it
     public float Playerscore   
@@ -28,6 +32,17 @@ public class GameManager : Singleton<GameManager>
         //this checks what the current scene is
         scenecheck();
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerscore >= 10 && !bossActive)
+        {
+          bossActive = true;
+
+           lugia.SetActive(true);
+            
+        }
     }
     private void Awake()
     {
@@ -76,6 +91,12 @@ public class GameManager : Singleton<GameManager>
             gameoverScore();
         }
     }
+
+    public void levelWin()
+    {
+
+    }
+
     public void gameoverScore( )
     { 
         //assigns the deathtext tmpui component to the DeathScore_Txt box on the scene and updates the score that the player had
