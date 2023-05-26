@@ -695,6 +695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lugia
       objectReference: {fileID: 0}
+    - target: {fileID: 1837836513490594343, guid: a89adafff0af0004fa103cb7cc2b108f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7001577744794109782, guid: a89adafff0af0004fa103cb7cc2b108f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1267,6 +1271,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1016100297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1837836513490594343, guid: a89adafff0af0004fa103cb7cc2b108f, type: 3}
+  m_PrefabInstance: {fileID: 473743262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1073355773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1925,6 +1934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTrack
       objectReference: {fileID: 0}
+    - target: {fileID: 566724367145289862, guid: c3bd5f2293f5bf448b4b9b0a94c11bd3, type: 3}
+      propertyPath: m_TagString
+      value: Enviroment
+      objectReference: {fileID: 0}
     - target: {fileID: 566724367145289914, guid: c3bd5f2293f5bf448b4b9b0a94c11bd3, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1969,6 +1982,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 800516064971699159, guid: c3bd5f2293f5bf448b4b9b0a94c11bd3, type: 3}
+      propertyPath: m_TagString
+      value: Enviroment
+      objectReference: {fileID: 0}
+    - target: {fileID: 800516065253934648, guid: c3bd5f2293f5bf448b4b9b0a94c11bd3, type: 3}
+      propertyPath: m_TagString
+      value: Enviroment
+      objectReference: {fileID: 0}
+    - target: {fileID: 800516065523355190, guid: c3bd5f2293f5bf448b4b9b0a94c11bd3, type: 3}
+      propertyPath: m_TagString
+      value: Enviroment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1982,6 +2007,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      propertyPath: Lugia
+      value: 
+      objectReference: {fileID: 1016100297}
     - target: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
       propertyPath: bulletSpawn
       value: 
@@ -2001,6 +2030,10 @@ PrefabInstance:
     - target: {fileID: 8425567399836245583, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425567399836245583, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8845819111602967341, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
       propertyPath: m_Constraints
