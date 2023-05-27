@@ -2769,7 +2769,7 @@ MonoBehaviour:
   - {fileID: 5607217676150430163, guid: ecee30d759d7373459bec564bd0c1b57, type: 3}
   - {fileID: 1036791530749857075, guid: f39c71259aed7564298df049009ade7e, type: 3}
   - {fileID: 8962117456957112504, guid: b096782716fd66d4789747b1f428f413, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 518193670}
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2032035467
 GameObject:
