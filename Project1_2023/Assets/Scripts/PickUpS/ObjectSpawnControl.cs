@@ -9,13 +9,14 @@ public class ObjectSpawnControl : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "ShieldPickUp" || collision.gameObject.tag == "Multiplier" || collision.gameObject.tag == "GunPickUp")
+        if (other.gameObject.tag == "ShieldPickUp" || other.gameObject.tag == "Multiplier" || other.gameObject.tag == "GunPickUp")
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 3);
         }
     }
+   
     // Update is called once per frame
     void Update()
     {

@@ -46,56 +46,9 @@ public class NewObjectSpawn : MonoBehaviour
             {
                 spawnPosition = spawnPositions[1].transform.position;
             }
-            //Checks spawn location against the list of spawned objects position and generates a new spawn position if there would be a conflict (i.e spawning on or too close to an exhisting object)
-           /* foreach (var obj in obstacles)
-            {
-                if (obj == null)
-                {
-                    int r = Random.Range(0, 4);
-                    spawnPosition = spawnPositions[r].transform.position;
-                    GameObject newSceneObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
-                    obstacles.Add(newSceneObject);
-                }
-                if (obj.transform.position.z == spawnPosition.z)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
-                }
-                if (obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
-                }
-                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(40, 70));
-                }
-            }*/
-
-           /* foreach (var obj in PickUpSpawn.spawnedPickUps)
-            {
-                if (obj == null)
-                {
-                    spawnPosition = spawnPositions[1].transform.position;
-                    GameObject newSceneObject = Instantiate(PickUpSpawn.spawnedPickUps[objToSpwn], spawnPosition, Quaternion.identity);
-                    PickUpSpawn.spawnedPickUps.Add(newSceneObject);
-                }
-                if (obj.transform.position.z == spawnPosition.z)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
-                }
-                if (obj.transform.position.z > spawnPosition.z && obj.transform.position.z < spawnPosition.z + 10)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
-                }
-                if (obj.transform.position.z < spawnPosition.z && obj.transform.position.z > spawnPosition.z - 10)
-                {
-                    spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
-                }
-            }*/
-            //Instantiates a new object at the final spawn position
+          
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
-           // spawnedObjects[i] = newObject;
-            //Adds the spawned object to the list of spawned objects
-           // spawnedObjects.Add(newObject);
+          
 
             i++;
             yield return new WaitForSeconds(spawnRate);
@@ -103,19 +56,7 @@ public class NewObjectSpawn : MonoBehaviour
         }
     }
 
-   /* public static void cleanUp()
-    {
-        for (int i = 1; i <spawnedObjects.Length; i++)
-        {
-            GameObject temp;
-            if (spawnedObjects[i - 1] == null)
-            {
-                temp = spawnedObjects[i];
-                spawnedObjects[i-1] = temp;
-                spawnedObjects[i] = null;
-            }
-        }
-    }*/
+  
     // Update is called once per frame
     void Update()
     {
