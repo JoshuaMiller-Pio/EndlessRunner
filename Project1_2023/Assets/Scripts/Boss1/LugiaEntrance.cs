@@ -8,7 +8,6 @@ public class LugiaEntrance : MonoBehaviour
     public GameObject mainBody;
     public GameObject player;
     private Rigidbody Main_comp;
-    float speed = 0.01f;
     // Start is called before the first frame update
     void  Awake()
     {

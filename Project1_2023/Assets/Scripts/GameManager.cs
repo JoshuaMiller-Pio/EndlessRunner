@@ -44,21 +44,16 @@ public class GameManager : Singleton<GameManager>
             
         }
     }
-    private void Awake()
-    {
 
 
-    }
     //once called it closes the application
     public  void onQuitClicked()
-    {
-
+    { 
         Application.Quit();
     }
     //Once called it it clears the spawnedpickups and spawnedobjects list and loads the 2nd scene
     public void onStartClicked()
     {
-        Debug.Log("restart");
         SceneManager.LoadScene(1);
         foreach (var obj in PickUpSpawn.spawnedPickUps)
         {
@@ -79,6 +74,8 @@ public class GameManager : Singleton<GameManager>
     //loads game over scene
     public void GameOver()
     {
+        bossActive = false;
+
         SceneManager.LoadScene(2);
 
     }
@@ -94,6 +91,8 @@ public class GameManager : Singleton<GameManager>
 
     public void levelWin()
     {
+        bossActive = false;
+        
         Canvas uiCanvas, vicCanvas;
         Camera Vicam, maincam;
         for (int i = 0; i < GameObject.FindObjectsOfType<Canvas>(true).Length; i++)
