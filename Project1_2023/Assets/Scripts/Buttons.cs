@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Buttons : MonoBehaviour
 {
-    public UnityEngine.UI.Button Quit;
+    public UnityEngine.UI.Button[] Quit;
     public UnityEngine.UI.Button Start;
 
 
@@ -22,7 +22,7 @@ public class Buttons : MonoBehaviour
 
     {
 
-        Quit.onClick.AddListener(GameManager.Instance.onQuitClicked);
+        Quit[0].onClick.AddListener(GameManager.Instance.onQuitClicked);
         Start.onClick.AddListener(GameManager.Instance.onStartClicked);
 
 

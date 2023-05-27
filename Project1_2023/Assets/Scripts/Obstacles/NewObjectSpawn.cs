@@ -13,7 +13,6 @@ public class NewObjectSpawn : MonoBehaviour
     public Vector3 spawnPosition;
     void Start()
     {
-        GameManager.rePlay();
        
         StartCoroutine(SpawnObject());
     }

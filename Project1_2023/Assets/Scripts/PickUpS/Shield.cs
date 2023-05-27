@@ -17,6 +17,7 @@ public class Shield : MonoBehaviour
         shieldUI = GameObject.FindGameObjectWithTag("ImageShield");
         shieldUI.SetActive(false);
         playersShield.SetActive(false);
+
     }
     public static bool isShielded()
     {

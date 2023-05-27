@@ -9,7 +9,7 @@ public class LugiaController : MonoBehaviour
 {
    static Rigidbody RigComp;
     float timer = 2.5f;
-    float health = 5;
+    float health = 1;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,7 +33,6 @@ public class LugiaController : MonoBehaviour
         {
             onDamageTaken();
             Destroy(other.gameObject);
-            Debug.Log("hit");
         }
     }
 
@@ -43,8 +42,10 @@ public class LugiaController : MonoBehaviour
     private void onDamageTaken()
     { 
         health -= 1;
+            Debug.Log(health);
         if (health <= 0)
         {
+
             onDeath();
         }
     }
@@ -52,6 +53,7 @@ public class LugiaController : MonoBehaviour
     private void onDeath()
     {
         GameManager.Instance.levelWin();
+        Destroy(gameObject);
     }
 
     #endregion
