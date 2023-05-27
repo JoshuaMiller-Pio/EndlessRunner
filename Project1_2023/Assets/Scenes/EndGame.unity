@@ -896,7 +896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05329e7b5c8ccde40b138e11c38a7f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Quit: {fileID: 921833924}
+  Quit:
+  - {fileID: 0}
   Start: {fileID: 63876121}
 --- !u!1 &921833922
 GameObject:
@@ -1262,7 +1263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05329e7b5c8ccde40b138e11c38a7f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Quit: {fileID: 921833924}
+  Quit:
+  - {fileID: 921833924}
   Start: {fileID: 63876121}
 --- !u!4 &1446908969
 Transform:

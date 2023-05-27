@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
     public GameObject bulletPrefab, bulletSpawn, Lugia;
+        bool winActive = false;
+        bool kicktrigger =false;
    
     void Start()
     {    
@@ -50,6 +52,21 @@ public class PlayerController : MonoBehaviour
 
         }
 
+<<<<<<< Updated upstream:Project1_2023/Assets/Scripts/PlayerController.cs
+=======
+        if (GameManager.Instance.win && !winActive)
+        {
+            VicAnim();
+            winActive = true;
+        }
+
+        if (Kick.entered && !kicktrigger && !isgrounded())
+        {
+            KickTrue();
+            kicktrigger = true;
+        }
+
+>>>>>>> Stashed changes:Project1_2023/Assets/Scripts/Player/PlayerController.cs
     }
   
 
@@ -176,9 +193,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag == "FireBall" || Shield.isShielded()) && !isgrounded() )
+        if (other.gameObject.tag == "FireBall"  && (!isgrounded() || Shield.isShielded()) )
         {
-
             GameObject fireballReturn = other.gameObject;
             Rigidbody FireComp = fireballReturn.GetComponent<Rigidbody>();
             FireComp.AddForce(0, 13, 50, ForceMode.Impulse);
@@ -201,7 +217,7 @@ public class PlayerController : MonoBehaviour
 
     //the rest are animatin calls
     #region ANIMATION CALLS
-    public void JumpTrue()
+     void JumpTrue()
     {
        if(!_aniComp.GetBool("isJumping"))
        {
@@ -216,7 +232,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    public void JumpFalse()
+     void JumpFalse()
     {
       
             _aniComp.SetBool("isJumping", false);
@@ -224,7 +240,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void rollleftTrue()
+     void rollleftTrue()
     {
         if (!_aniComp.GetBool("rollLeft"))
         {
@@ -237,7 +253,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void rollleftFalse()
+     void rollleftFalse()
     {
           
             _aniComp.SetBool("rollLeft", false);
@@ -246,7 +262,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public void rollrightTrue()
+     void rollrightTrue()
     {
         
         if (!_aniComp.GetBool("rollRight") )
@@ -260,10 +276,28 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void rollRightFalse()
+     void rollRightFalse()
     {
         _aniComp.SetBool("rollRight", false);
 
+    }
+
+    void KickTrue()
+    {
+        if (!_aniComp.GetBool("kick"))
+        {
+            KickFalse();
+            _aniComp.SetBool("kick", true);
+            JumpFalse();
+        }
+    } 
+    void KickFalse()
+    {
+        _aniComp.SetBool("kick", false);
+        
+
+        kicktrigger = false;
+        Kick.entered = false;
     }
 
     #endregion
