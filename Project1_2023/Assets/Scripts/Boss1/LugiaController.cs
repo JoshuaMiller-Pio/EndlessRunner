@@ -68,7 +68,7 @@ public class LugiaController : MonoBehaviour
     void LaneDecider()
     {
 
-        int lane = Random.RandomRange(0, 3);
+        int lane = Random.Range(0, 3);
         Vector3 left, middle, right;
         left = new Vector3(-32.5f, transform.position.y, transform.position.z +9.9f);
         middle = new Vector3(-26.7f, transform.position.y, transform.position.z + 9.9f);
