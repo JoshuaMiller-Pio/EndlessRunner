@@ -9,7 +9,7 @@ public class LugiaController : MonoBehaviour
 {
    static Rigidbody RigComp;
     float timer = 2.5f;
-    float health = 1;
+    float health = 5;
     // Start is called before the first frame update
     void Awake()
     {
