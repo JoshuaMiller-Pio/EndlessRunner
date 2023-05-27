@@ -11,6 +11,8 @@ public class NewObjectSpawn : MonoBehaviour
     public GameObject[] spawnPositions = new GameObject[3];
 
     public Vector3 spawnPosition;
+
+    //public static GameObject[] spawnedObjects = new GameObject[10] ;
     void Start()
     {
        
@@ -18,7 +20,7 @@ public class NewObjectSpawn : MonoBehaviour
     }
     public IEnumerator SpawnObject()
     {
-        int i = 0;
+        int i = 1;
         while (true)
         {
 
@@ -68,11 +70,11 @@ public class NewObjectSpawn : MonoBehaviour
                 }
             }*/
 
-            foreach (var obj in PickUpSpawn.spawnedPickUps)
+           /* foreach (var obj in PickUpSpawn.spawnedPickUps)
             {
                 if (obj == null)
                 {
-                    spawnPosition = new Vector3(0.63f, 0, (Player.transform.position.z + 40));
+                    spawnPosition = spawnPositions[1].transform.position;
                     GameObject newSceneObject = Instantiate(PickUpSpawn.spawnedPickUps[objToSpwn], spawnPosition, Quaternion.identity);
                     PickUpSpawn.spawnedPickUps.Add(newSceneObject);
                 }
@@ -88,10 +90,10 @@ public class NewObjectSpawn : MonoBehaviour
                 {
                     spawnPosition.z = spawnPosition.z + (Player.transform.position.z + Random.Range(15, 25));
                 }
-            }
+            }*/
             //Instantiates a new object at the final spawn position
             GameObject newObject = Instantiate(obstacles[objToSpwn], spawnPosition, Quaternion.identity);
-
+           // spawnedObjects[i] = newObject;
             //Adds the spawned object to the list of spawned objects
            // spawnedObjects.Add(newObject);
 
@@ -100,6 +102,20 @@ public class NewObjectSpawn : MonoBehaviour
 
         }
     }
+
+   /* public static void cleanUp()
+    {
+        for (int i = 1; i <spawnedObjects.Length; i++)
+        {
+            GameObject temp;
+            if (spawnedObjects[i - 1] == null)
+            {
+                temp = spawnedObjects[i];
+                spawnedObjects[i-1] = temp;
+                spawnedObjects[i] = null;
+            }
+        }
+    }*/
     // Update is called once per frame
     void Update()
     {

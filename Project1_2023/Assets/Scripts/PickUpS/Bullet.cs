@@ -19,9 +19,21 @@ public class Bullet : MonoBehaviour
     {
         if (other.tag == "Obstacle")
         {
-            ObjectSpawner.spawnedObjects.Remove(other.gameObject);
-            Destroy(other.gameObject);
+            int i = 0;
+            
+            
             Destroy(this.gameObject);
+            if (ScoreMultiplier.multiplyOn == true)
+            {
+                ScoreController.score = ScoreController.score + 2;
+            }
+            else if (ScoreMultiplier.multiplyOn == false)
+            {
+                ScoreController.score = ScoreController.score + 1;
+            }
+            // ObjectSpawner.spawnedObjects.Remove(other.gameObject);
+            Destroy(other.gameObject);
+
 
             //Removes the destroyed object from the ObjectSpawners() spawnedObjects list;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     
-    public int score;
+    public static int score;
    
     // Start is called before the first frame update
     void Awake()
