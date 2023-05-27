@@ -21,7 +21,7 @@ public class ScoreBroad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = Player.GetComponent<ScoreController>().score;
+        score = ScoreController.score;
         ScoreText.text = "Score: " + score;
         ammoCount = GunPickUp.ammo;
         ammoText.text = "Ammo: " + ammoCount.ToString();

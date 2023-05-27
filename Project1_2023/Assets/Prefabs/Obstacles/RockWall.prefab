@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 9124479790835173009}
   - component: {fileID: 8948170286722040919}
   - component: {fileID: 5362119421095330386}
+  - component: {fileID: -5090265752802613400}
   m_Layer: 0
   m_Name: RockWall
   m_TagString: Obstacle
@@ -198,5 +199,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9aec60d65e1ad940b66323b738729e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5090265752802613400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8249491095416257607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a8110042f768d4789c58d7e7156f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

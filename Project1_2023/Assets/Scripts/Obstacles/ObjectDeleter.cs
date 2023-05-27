@@ -20,11 +20,14 @@ public class ObjectDeleter : MonoBehaviour
     {
         if (other.tag == "Delete")
         {
-            ObjectSpawner.spawnedObjects.Remove(this.gameObject);
-            Destroy(this.gameObject);
+           
+                Destroy(this.gameObject);
+
+            
+
 
             //Removes the destroyed object from the ObjectSpawners() spawnedObjects list;
-            
+
         }
     }
 
