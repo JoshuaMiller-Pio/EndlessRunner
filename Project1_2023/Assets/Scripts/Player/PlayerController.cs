@@ -149,20 +149,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator MoveLerp(UnityEngine.Vector3 TargetPos)
     {
-        float time = 0;
-        //this get the players current position on the track
-        UnityEngine.Vector3 CurrentPos = transform.position;
-
-        //while time is less than 1 second the loop will continue, the player will slowly slide across the gap to the next lane
-        while (time < 1)
+        if (!GameManager.Instance.win)
         {
-            transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
-            time += Time.deltaTime;
-            //this stops the coroutine until the next frame
-            yield return null;
+            float time = 0;
+            //this get the players current position on the track
+            UnityEngine.Vector3 CurrentPos = transform.position;
+
+            //while time is less than 1 second the loop will continue, the player will slowly slide across the gap to the next lane
+            while (time < 1)
+            {
+                transform.position = UnityEngine.Vector3.Lerp(CurrentPos, TargetPos, time / 1);
+                time += Time.deltaTime;
+                //this stops the coroutine until the next frame
+                yield return null;
+            }
+            //at the end of the while this will snap the player to the target position
+            transform.position = TargetPos;
+
         }
-        //at the end of the while this will snap the player to the target position
-        transform.position = TargetPos;
 
     }
 
