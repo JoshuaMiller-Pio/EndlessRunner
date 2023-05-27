@@ -54,6 +54,7 @@ public class GameManager : Singleton<GameManager>
     //Once called it it clears the spawnedpickups and spawnedobjects list and loads the 2nd scene
     public void onStartClicked()
     {
+        bossActive = false;
         SceneManager.LoadScene(1);
         foreach (var obj in PickUpSpawn.spawnedPickUps)
         {
