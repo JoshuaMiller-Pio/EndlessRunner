@@ -18,25 +18,24 @@ public class NewestPickUpSpawn : MonoBehaviour
     }
     public IEnumerator SpawnObject()
     {
-        int i = 0;
-        int j = 0;
+       
         while (true)
         {
 
-            int objToSpwn = Random.Range(0, 4);
+            int objToSpwn = Random.Range(0, 3);
             int spawnRate = Random.Range(2, 5);
-            int spawnPos = Random.Range(0, 4);
+            int spawnPos = Random.Range(0, 3);
 
             //Generates apropriate spawn position based on randomly selected lane and object prefab
-            if (spawnPos == 1)
+            if (spawnPos == 0)
             {
                 spawnPosition = spawnPositions[0].transform.position;
             }
-            else if (spawnPos == 2)
+            else if (spawnPos == 1)
             {
                 spawnPosition = spawnPositions[1].transform.position;
             }
-            else if (spawnPos == 3)
+            else if (spawnPos == 2)
             {
                 spawnPosition = spawnPositions[2].transform.position;
             }
@@ -93,7 +92,7 @@ public class NewestPickUpSpawn : MonoBehaviour
             //Adds the spawned object to the list of spawned objects
             // spawnedObjects.Add(newObject);
 
-            i++;
+            
             yield return new WaitForSeconds(spawnRate);
 
         }

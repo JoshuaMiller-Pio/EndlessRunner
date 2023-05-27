@@ -55,16 +55,16 @@ public class GameManager : Singleton<GameManager>
     public void onStartClicked()
     {
         SceneManager.LoadScene(1);
-        foreach (var obj in PickUpSpawn.spawnedPickUps)
+        /*foreach (var obj in PickUpSpawn.spawnedPickUps)
         {
             PickUpSpawn.spawnedPickUps.Remove(obj);
-        }
+        }*/
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
 
-        foreach (var obj in ObjectSpawner.spawnedObjects)
+        /*foreach (var obj in ObjectSpawner.spawnedObjects)
         {
             ObjectSpawner.spawnedObjects.Remove(obj);
-        }
+        }*/
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
        
         
