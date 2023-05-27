@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         _aniComp = GetComponent<Animator>();
         _colliderComp = GetComponent<CapsuleCollider>();
         GameManager.Instance.lugia = Lugia;
+        GameManager.Instance.player = gameObject;
 
     }
 
@@ -48,6 +49,11 @@ public class PlayerController : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
             GunPickUp.Shoot();
 
+        }
+
+        if (GameManager.Instance.win)
+        {
+            VicAnim();
         }
 
     }
@@ -164,7 +170,7 @@ public class PlayerController : MonoBehaviour
     //if the player touches a object with the tag obstacle the object spawner list is cleared and the player OnplayerDeath method is called
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Obstacle" && !Shield.isShielded() || (collision.gameObject.tag == "FireBall" && isgrounded() && !Shield.isShielded()))
+        if (collision.gameObject.tag == "Obstacle" && !Shield.isShielded() )
         {
                 ObjectSpawner.spawnedObjects.Clear();
                 OnPlayerDeath();
@@ -264,6 +270,10 @@ public class PlayerController : MonoBehaviour
     {
         _aniComp.SetBool("rollRight", false);
 
+    }
+    void VicAnim()
+    {
+        _aniComp.SetBool("Win", true);
     }
 
     #endregion
