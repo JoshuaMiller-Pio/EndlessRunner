@@ -1254,7 +1254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05329e7b5c8ccde40b138e11c38a7f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Quit: {fileID: 227072684}
+  Quit:
+  - {fileID: 227072684}
   Start: {fileID: 673864574}
 --- !u!4 &1167051313
 Transform:
