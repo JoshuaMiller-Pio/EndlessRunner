@@ -24,10 +24,13 @@ public class ScoreController : MonoBehaviour
             if(ScoreMultiplier.multiplyOn == true)
             {
                 score +=  2;
+                GameManager.Instance.Playerscore += 2;
+
             }
             else
             {
                 score += 1;
+                GameManager.Instance.Playerscore += 1;
                 StopCoroutine(ScoreMultiplier.StartMultiply());
             }
             
@@ -39,7 +42,8 @@ public class ScoreController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
-            GameManager.Instance.Playerscore = score;
+                GameManager.Instance.Playerscore = score;
+
         }
     }
     // Update is called once per frame

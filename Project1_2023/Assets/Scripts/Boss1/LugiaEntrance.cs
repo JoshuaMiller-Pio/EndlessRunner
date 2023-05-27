@@ -12,6 +12,7 @@ public class LugiaEntrance : MonoBehaviour
     // Start is called before the first frame update
     void  Awake()
     {
+        
         target = new Quaternion();
         target.SetEulerAngles(0,0,0);
         Main_comp = mainBody.GetComponent<Rigidbody>();
