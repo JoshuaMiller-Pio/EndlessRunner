@@ -1754,7 +1754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Quit:
   - {fileID: 567342261}
-  - {fileID: 0}
+  - {fileID: 1739465460}
   Start: {fileID: 160476302}
 --- !u!4 &1245604232
 Transform:
@@ -2623,7 +2623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1928029751
 MonoBehaviour:
   m_ObjectHideFlags: 0
