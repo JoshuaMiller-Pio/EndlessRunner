@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private GameObject player;
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
+    public AudioSource runAud_Comp, gruntAud_Comp;
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
     public GameObject bulletPrefab, bulletSpawn, Lugia;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         _colliderComp = GetComponent<CapsuleCollider>();
         GameManager.Instance.lugia = Lugia;
         GameManager.Instance.player = gameObject;
-
+   
     }
 
     // Update is called once per frame
@@ -229,10 +230,11 @@ public class PlayerController : MonoBehaviour
             _aniComp.SetBool("isJumping", true);
             rollleftFalse();
             rollRightFalse();
+            runAud_Comp.Pause();
+            playGrunt();
 
-           
-       }
-      
+        }
+
 
 
     }
@@ -240,7 +242,7 @@ public class PlayerController : MonoBehaviour
     {
       
             _aniComp.SetBool("isJumping", false);
-        
+        playRun();
     }
 
 
@@ -252,21 +254,25 @@ public class PlayerController : MonoBehaviour
             _aniComp.SetBool("rollLeft", true);
             JumpFalse();
             rollRightFalse();
+            runAud_Comp.Pause();
+            playGrunt();
 
         }
-        
+
     }
 
      void rollleftFalse()
     {
           
             _aniComp.SetBool("rollLeft", false);
-        
+        playRun();
+
+
     }
 
 
 
-     void rollrightTrue()
+    void rollrightTrue()
     {
         
         if (!_aniComp.GetBool("rollRight") )
@@ -275,14 +281,19 @@ public class PlayerController : MonoBehaviour
             _aniComp.SetBool("rollRight", true);
             rollleftFalse();
             JumpFalse();
+            runAud_Comp.Pause();
+            playGrunt();
+
         }
-       
+
     }
 
 
      void rollRightFalse()
     {
         _aniComp.SetBool("rollRight", false);
+        playRun();
+
 
     }
     void VicAnim()
@@ -294,6 +305,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!_aniComp.GetBool("kick"))
         {
+            runAud_Comp.Pause();
             KickFalse();
             _aniComp.SetBool("kick", true);
             JumpFalse();
@@ -302,10 +314,28 @@ public class PlayerController : MonoBehaviour
     void KickFalse()
     {
         _aniComp.SetBool("kick", false);
-        
-
+        playRun();
         kicktrigger = false;
         Kick.entered = false;
+    }
+
+    #endregion
+
+    #region Audio
+    void playRun()
+    {
+        runAud_Comp.Play();
+
+    }
+    void pauseRun()
+    {
+        runAud_Comp.Pause();
+
+    }
+    void playGrunt()
+    {
+        gruntAud_Comp.Play();
+
     }
 
     #endregion
