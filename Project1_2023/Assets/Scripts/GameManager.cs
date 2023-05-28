@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
 
     private void FixedUpdate()
     {
-        if (playerscore >= 1 && !bossActive)
+        if (playerscore >= 25 && !bossActive)
         {
           bossActive = true;
 
