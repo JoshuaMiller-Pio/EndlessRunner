@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         {
             KickTrue();
             kicktrigger = true;
+            Kick.entered = false;
+        }
+        else if(Kick.entered && isgrounded())
+        {
+            Kick.entered = false;
         }
 
 
@@ -102,8 +107,8 @@ public class PlayerController : MonoBehaviour
             }
 
             //the middle and left lane is given a vecoter3 variable and coordinates
-            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z + 10);
-            UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, transform.position.y, transform.position.z + 10);
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, -0.25f, transform.position.z + 10);
+            UnityEngine.Vector3 LeftTarget = new UnityEngine.Vector3(left, -0.25f, transform.position.z + 10);
 
             if (playerPos.x == middle )
             {
@@ -125,8 +130,8 @@ public class PlayerController : MonoBehaviour
             {
                 rollrightTrue();
             }
-            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, transform.position.y, transform.position.z +10);
-            UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, transform.position.y, transform.position.z+10);
+            UnityEngine.Vector3 MiddleTarget = new UnityEngine.Vector3(middle, -0.25f, transform.position.z +10);
+            UnityEngine.Vector3 RightTarget = new UnityEngine.Vector3(right, -0.25f, transform.position.z+10);
 
             if (playerPos.x == middle )
             {
@@ -188,7 +193,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle" && !Shield.isShielded() )
         {
-                ObjectSpawner.spawnedObjects.Clear();
                 OnPlayerDeath();
 
         } 
@@ -204,6 +208,11 @@ public class PlayerController : MonoBehaviour
             Rigidbody FireComp = fireballReturn.GetComponent<Rigidbody>();
             FireComp.AddForce(0, 13, 50, ForceMode.Impulse);
 
+
+        }
+         if (other.gameObject.tag == "FireBall" && (isgrounded() && !Shield.isShielded()))
+        {
+            OnPlayerDeath();
 
         }
     }

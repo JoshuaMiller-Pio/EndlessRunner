@@ -17,13 +17,13 @@ public class LugiaAttack : MonoBehaviour
         if (time <= 0)
         {
             FireAttack();
-            time = 5f;
+            time = Random.Range(2,6);
         }
     }
    void FireAttack()
    {
         Rigidbody fireballComp = Instantiate(FireBall, FireballSpawner.transform.position, transform.rotation).GetComponent<Rigidbody>();
-        fireballComp.AddForce(0, -5, -10, ForceMode.Impulse);
+        fireballComp.AddForce(0, -4f, -10f, ForceMode.Impulse);
         Fire.Play();
     }
 }

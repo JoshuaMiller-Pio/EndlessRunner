@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
 
     private void FixedUpdate()
     {
-        if (playerscore >= 25 && !bossActive)
+        if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
 
@@ -102,6 +102,17 @@ public class GameManager : Singleton<GameManager>
             {
                  vicCanvas = GameObject.FindObjectsOfType<Canvas>(true)[i];
                 vicCanvas.gameObject.SetActive(true);
+                for (int j = 0; j < GameObject.FindObjectsOfType<GameObject>().Length; j++)
+                {
+                     if (GameObject.FindObjectsOfType<GameObject>(true)[i].name == "NewObjectSpawner")
+                     {
+                        GameObject SpawnerDisable = GameObject.FindObjectsOfType<GameObject>(true)[j];
+                        vicCanvas.gameObject.SetActive(false);
+
+                     }
+
+                }
+
             }
             else
             {

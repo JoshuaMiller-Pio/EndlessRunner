@@ -11,6 +11,8 @@ public class ScoreMultiplier : MonoBehaviour
     public static GameObject multiplyUI;
     public static bool startFade;
     public static bool multiplyOnScreen;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,34 +30,23 @@ public class ScoreMultiplier : MonoBehaviour
 
     
     //
-    public static IEnumerator StartMultiply()
+    public static IEnumerator StartMultiply(TMPro.TextMeshProUGUI timers)
     {
         multiplyOn = true;
         multiplyUI.SetActive(true);
         multiplyOnScreen = true;
         int j = 10;
+
+
         while(j > 0)
         {
-            Debug.Log(j);
-            if (multiplyOnScreen == false)
-            {
-                Debug.Log("First If");
-                multiplyUI.SetActive(true);
-                multiplyOnScreen = true;
-            }
+          
             
            
-            if(j <= 5 && multiplyOnScreen == true)
-            {
-                Debug.Log("Second If");
-                multiplyUI.SetActive(false);
-                multiplyOnScreen =false;
-               
-            }
-         
-
+     
+            timers.text = $"{j}";
             yield return new WaitForSeconds(1);
-           
+            
             j--;
             
         }
@@ -63,6 +54,7 @@ public class ScoreMultiplier : MonoBehaviour
        
         multiplyOn = false;
         multiplyUI.SetActive(false);
+        yield return null;
     }
 
     public static void UIOn()

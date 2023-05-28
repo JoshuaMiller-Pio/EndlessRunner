@@ -6,6 +6,8 @@ using UnityEngine;
 public class PickingUp : MonoBehaviour
 {
     public AudioSource DoubleSound;
+    public TMPro.TextMeshProUGUI shield_timers, multiplyer_timers;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class PickingUp : MonoBehaviour
             DoubleSound.Play();
             Destroy(currentPickUp);
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-            StartCoroutine(ScoreMultiplier.StartMultiply());
+            StartCoroutine(ScoreMultiplier.StartMultiply(multiplyer_timers));
            // StartCoroutine(ScoreMultiplier.NormalImage());
         }
 
@@ -35,7 +37,7 @@ public class PickingUp : MonoBehaviour
             Destroy(currentPickUp);
 
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-            StartCoroutine(Shield.StartShield());
+            StartCoroutine(Shield.StartShield(shield_timers));
         }
 
         if (other.gameObject.tag == "GunPickUp")
@@ -50,21 +52,7 @@ public class PickingUp : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Multiplier")
-        {
-            GameObject currentPickUp = collision.gameObject;
-            Debug.Log("multiply");
-            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
-            Destroy(currentPickUp);
-           
-            StartCoroutine(ScoreMultiplier.StartMultiply());
-
-
-
-        }
-    }
+ 
     //when the deleter trigger collids with the object it is deleted
     /*private void OnTriggerEnter(Collider other)
     {

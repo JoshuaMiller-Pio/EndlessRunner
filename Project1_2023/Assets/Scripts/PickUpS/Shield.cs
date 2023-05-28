@@ -10,6 +10,7 @@ public class Shield : MonoBehaviour
     public static bool shielded;
     public static GameObject playersShield; 
     public static GameObject shieldUI;
+
     void Awake()
     {
         shielded = false;
@@ -25,13 +26,24 @@ public class Shield : MonoBehaviour
         return shielded;
     }
 
-    public static IEnumerator StartShield()
-    {
-
+    public static IEnumerator StartShield(TMPro.TextMeshProUGUI timers)
+    { 
         shielded = true;
         playersShield.SetActive(true);
         shieldUI.SetActive(true);
-        yield return new WaitForSeconds(15);
+        int j = 15;
+        while (j > 0)
+        {
+
+
+
+
+            timers.text = $"{j}";
+            yield return new WaitForSeconds(1);
+            j--;
+
+        }
+        
 
         shielded = false;
         playersShield.SetActive(false );

@@ -31,7 +31,7 @@ public class ScoreController : MonoBehaviour
             {
                 score += 1;
                 GameManager.Instance.Playerscore += 1;
-                
+
             }
             
         }
