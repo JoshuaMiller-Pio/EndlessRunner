@@ -23,6 +23,7 @@ public class PickingUp : MonoBehaviour
             
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
+           // StartCoroutine(ScoreMultiplier.NormalImage());
         }
 
         if (other.gameObject.tag == "ShieldPickUp")
