@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PickingUp : MonoBehaviour
 {
+    public AudioSource DoubleSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,10 @@ public class PickingUp : MonoBehaviour
         if ( other.gameObject.tag == "Multiplier")
         {
             GameObject currentPickUp = other.gameObject;
-   
-            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
-            Destroy(currentPickUp);
             
+            PickUpSpawn.spawnedPickUps.Remove(currentPickUp);
+            DoubleSound.Play();
+            Destroy(currentPickUp);
             //Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
             StartCoroutine(ScoreMultiplier.StartMultiply());
         }

@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private GameObject player;
     private Rigidbody _rigComp = new Rigidbody();
     private Animator _aniComp = new Animator();
-    public AudioSource runAud_Comp, gruntAud_Comp;
+    public AudioSource runAud_Comp, gruntAud_Comp,GunAud_Comp;
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
     public GameObject bulletPrefab, bulletSpawn, Lugia;
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
             GunPickUp.Shoot();
-
+            GunAud_Comp.Play();
         }
 
 

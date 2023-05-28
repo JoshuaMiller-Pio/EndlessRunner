@@ -6,6 +6,7 @@ using UnityEngine;
 public class LugiaAttack : MonoBehaviour
 {
     public GameObject FireballSpawner, FireBall;
+    public AudioSource Fire;
     float time= 5f;
  
 
@@ -23,5 +24,6 @@ public class LugiaAttack : MonoBehaviour
    {
         Rigidbody fireballComp = Instantiate(FireBall, FireballSpawner.transform.position, transform.rotation).GetComponent<Rigidbody>();
         fireballComp.AddForce(0, -5, -10, ForceMode.Impulse);
+        Fire.Play();
     }
 }
