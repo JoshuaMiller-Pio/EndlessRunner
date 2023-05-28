@@ -19,7 +19,7 @@ public class Kick : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-         if(other.gameObject.tag == "FireBall")
+         if(other.gameObject.tag == "FireBall" )
          {
             entered= true;
          }

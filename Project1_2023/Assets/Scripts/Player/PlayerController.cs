@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         {
             KickTrue();
             kicktrigger = true;
+            Kick.entered = false;
+        }
+        else if(Kick.entered && isgrounded())
+        {
+            Kick.entered = false;
         }
 
 
@@ -188,7 +193,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle" && !Shield.isShielded() )
         {
-                ObjectSpawner.spawnedObjects.Clear();
                 OnPlayerDeath();
 
         } 
@@ -204,6 +208,11 @@ public class PlayerController : MonoBehaviour
             Rigidbody FireComp = fireballReturn.GetComponent<Rigidbody>();
             FireComp.AddForce(0, 13, 50, ForceMode.Impulse);
 
+
+        }
+         if (other.gameObject.tag == "FireBall" && (isgrounded() && !Shield.isShielded()))
+        {
+            OnPlayerDeath();
 
         }
     }
