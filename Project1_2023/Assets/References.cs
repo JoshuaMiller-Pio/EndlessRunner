@@ -4,6 +4,8 @@
 
 //3D SCANNED OLD LOG 4 (no date) Textures.com.Available at: https://www.textures.com/download/3DScans1013/142878 (Accessed: 28 May 2023). 
 
+//3D SCANNED TREE BARK  (no date) Textures.com. Available at: https://www.textures.com/download/3DScans0050/127280 (Accessed: 29 May 2023). 
+
 //Coma - Media(no date) Rock it | royalty-free music - pixabay, PixaBay. Available at: https://pixabay.com/music/upbeat-rock-it-21275/ (Accessed: 27 May 2023). 
 
 //Free low poly human - RPG character: Characters (2022) Unity Asset Store. Blink. Available at: https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/freelow-poly-human-rpg-character-219979 (Accessed: April 11, 2023). 
@@ -17,6 +19,8 @@
 //Magicpot Inc. (2016) Fighting Motions Vol.1, Unity Asset Store. Unity Asset Store. Available at: https://assetstore.unity.com/packages/3d/animations/fighting-motions-vol-1-76699 (Accessed: 27 May 2023). 
 
 //Miller-Pio, J.(2023)."3D Model of 9mm bullet"[Blender]. Unpublished
+
+//Miller-Pio, J.(2023)."3D Model of a log"[Blender]. Unpublished
 
 //Miller-Pio, J.(2023)."3D model of a Minecart"[Blender]. Unpublished
 
