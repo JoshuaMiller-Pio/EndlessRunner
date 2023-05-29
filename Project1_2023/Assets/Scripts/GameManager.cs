@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
 
     private void FixedUpdate()
     {
-        if (playerscore >= 10 && !bossActive)
+        if (playerscore >= 25 && !bossActive)
         {
           bossActive = true;
            lugia.SetActive(true);
