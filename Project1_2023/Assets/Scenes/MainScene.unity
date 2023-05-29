@@ -2474,7 +2474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 7257409699644472352, guid: cae3ed74af63ac540a1acd77d4b561f9, type: 3}
-  - {fileID: 4244543158178774432, guid: ced24acb223eb9e468556ec2b0597b10, type: 3}
+  - {fileID: 7390318879768791429, guid: 886122af1147e884a84bb3bac93af440, type: 3}
   - {fileID: 2813453807410041123, guid: 0af69125762516340acbfd158636bc7b, type: 3}
   Player: {fileID: 518193670}
   spawnPositions:

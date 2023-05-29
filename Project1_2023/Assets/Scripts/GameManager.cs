@@ -39,7 +39,6 @@ public class GameManager : Singleton<GameManager>
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-
            lugia.SetActive(true);
             
         }
@@ -56,6 +55,7 @@ public class GameManager : Singleton<GameManager>
     {
         bossActive = false;
         SceneManager.LoadScene(1);
+        playerscore = 0;
         /*foreach (var obj in PickUpSpawn.spawnedPickUps)
         {
             PickUpSpawn.spawnedPickUps.Remove(obj);
@@ -76,7 +76,6 @@ public class GameManager : Singleton<GameManager>
     public void GameOver()
     {
         bossActive = false;
-
         SceneManager.LoadScene(2);
 
     }

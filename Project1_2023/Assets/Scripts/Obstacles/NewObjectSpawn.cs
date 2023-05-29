@@ -29,15 +29,15 @@ public class NewObjectSpawn : MonoBehaviour
             int spawnPos = Random.Range(0, 4);
 
             //Generates apropriate spawn position based on randomly selected lane and object prefab
-            if (spawnPos == 1 && objToSpwn == 0 || spawnPos == 1 && objToSpwn == 3)
+            if (spawnPos == 0 && objToSpwn == 0 || spawnPos == 0 && objToSpwn == 2)
             {
                 spawnPosition = spawnPositions[0].transform.position;
             }
-            else if (spawnPos == 2 && objToSpwn == 0 || spawnPos == 2 && objToSpwn == 3)
+            else if (spawnPos == 1 && objToSpwn == 0 || spawnPos == 1 && objToSpwn == 2)
             {
                 spawnPosition = spawnPositions[1].transform.position;
             }
-            else if (spawnPos == 3 && objToSpwn == 0 || spawnPos == 3 && objToSpwn == 3)
+            else if (spawnPos == 2 && objToSpwn == 0 || spawnPos == 2 && objToSpwn == 2)
             {
                 spawnPosition = spawnPositions[0].transform.position;
             }
