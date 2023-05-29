@@ -1408,16 +1408,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'You have desturbed and awoken a slumbering dragon while explorng an abandoned
-    mine.
+    mine. Dodge the obstacle while you try to escape the cave.
 
 
-    The dragon will continue to launch flaming fire orbs at you. Lucky
-    for you your hiking boots are tough. Kick the flaming orbs back at the dragon
-    by jumping into them to give it a taste of it''s own medicine.
+    Your futuristic
+    gun can disintegrate the objects that block your path but be careful, your ammo
+    is limited.
 
 
-    Defeat the
-    dragon and escape the cave.'
+    The dragon will continue to launch flaming fire orbs at you.
+    Lucky for you your hiking boots are tough. Kick the flaming orbs back at the
+    dragon by jumping into them to give it a taste of it''s own medicine.
+
+
+    Defeat
+    the dragon and escape the cave.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
