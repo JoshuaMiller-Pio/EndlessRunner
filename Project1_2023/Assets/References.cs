@@ -16,6 +16,15 @@
 //Worn Bare Metal(no date) TexturesTextrures.com.Available at: https://www.textures.com/download/PBR1063/142895 (Accessed: 28 May 2023). 
 
 
+//Images:
+
+//Miller-Pio, J. 2023. "Shotgun Shell". [Digital Render][Personal Collection]. Unpublished.
+
+//Zunde, J. 2023. "X2". [Digital Render][Personal Collection]. Unpublished.
+
+//Zunde, J. 2023. "Shield". [Digital Render][Personal Collection]. Unpublished.
+
+
 //Animations:
 
 //Iglesias, K. (2023) Basic motions free: 3D animations, Unity Asset Store. Kevin Iglesias.Available at: https://assetstore.unity.com/packages/3d/animations/basic-motions-free154271 (Accessed: April 11, 2023).
