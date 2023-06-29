@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : Singleton<GameEvents>
 {
     public static GameEvents current;
 
@@ -16,30 +16,28 @@ public class GameEvents : MonoBehaviour
 
     public void ScoreIncrease()
     {
-        
-        if(OnScoreIncrease != null)
-        {
-            OnScoreIncrease();
-        }
+            
+            OnScoreIncrease?.Invoke();
     }
+
+
     public event Action OnLevelScoreIncrease;
 
     public void LevelScoreIncrease()
     {
-        if (OnLevelScoreIncrease != null)
-        {
-            OnLevelScoreIncrease();
-        }
+      
+            OnLevelScoreIncrease?.Invoke();
+        
     }
+
 
     public event Action OnBossSpawn;
 
     public void BossSpawn()
     {
-        if (OnBossSpawn != null)
-        {
-            OnBossSpawn();
-        }
+        
+            OnBossSpawn?.Invoke();
+        
     }
 
 }

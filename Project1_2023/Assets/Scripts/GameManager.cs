@@ -30,6 +30,8 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         GameEvents.current.OnBossSpawn += spawnBoss;
+        GameEvents.current.OnLevelScoreIncrease -= scoreIncrease;
+
     }
 
     // Update is called once per frame
@@ -155,7 +157,12 @@ public class GameManager : Singleton<GameManager>
             DeathText.text = $"score: {playerscore}";
 
     }
-  
+
+   void scoreIncrease()
+    {
+        LevelScore++;
+
+    }
 
 
 
