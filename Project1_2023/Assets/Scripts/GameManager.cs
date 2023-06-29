@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
 
     private TMPro.TextMeshProUGUI DeathText;
     public GameObject lugia,player;
-    private float playerscore;
+    private float playerscore, levelScore;
     public string Player_Name;
     private bool bossActive = false;
     public bool win = false;
@@ -20,6 +20,11 @@ public class GameManager : Singleton<GameManager>
     {
         get { return playerscore; }   
         set { playerscore = value; }
+    }
+    public float LevelScore
+    {
+        get { return levelScore; }
+        set { levelScore = value; }
     }
 
 
@@ -39,7 +44,7 @@ public class GameManager : Singleton<GameManager>
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-           lugia.SetActive(true);
+          lugia.SetActive(true);
             
         }
     }
@@ -56,16 +61,10 @@ public class GameManager : Singleton<GameManager>
         bossActive = false;
         SceneManager.LoadScene(1);
         playerscore = 0;
-        /*foreach (var obj in PickUpSpawn.spawnedPickUps)
-        {
-            PickUpSpawn.spawnedPickUps.Remove(obj);
-        }*/
+  
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
 
-        /*foreach (var obj in ObjectSpawner.spawnedObjects)
-        {
-            ObjectSpawner.spawnedObjects.Remove(obj);
-        }*/
+   
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
        
         

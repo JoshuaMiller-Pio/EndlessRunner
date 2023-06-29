@@ -5,11 +5,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class LugiaController : MonoBehaviour
+public class LugiaController : Boss_Super
 {
    static Rigidbody RigComp;
     float timer = 2.5f;
-    float health = 5;
+    static float health = 1;
+
+
+    private LugiaController() : base(health)
+    {
+
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,36 +33,9 @@ public class LugiaController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "FireBall" )
-        {
-            onDamageTaken();
-            Destroy(other.gameObject);
-        }
-    }
-
-    #region Damage
 
 
-    private void onDamageTaken()
-    { 
-        health -= 1;
-            Debug.Log(health);
-        if (health <= 0)
-        {
 
-            onDeath();
-        }
-    }
-
-    private void onDeath()
-    {
-        GameManager.Instance.levelWin();
-        Destroy(gameObject);
-    }
-
-    #endregion
 
     #region Movement
     public static void BaseMove()
@@ -95,5 +74,7 @@ public class LugiaController : MonoBehaviour
         BaseMove();
 
     }
+ 
     #endregion
+  
 }
