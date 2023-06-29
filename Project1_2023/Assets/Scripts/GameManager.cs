@@ -27,7 +27,10 @@ public class GameManager : Singleton<GameManager>
         set { levelScore = value; }
     }
 
-
+    private void Start()
+    {
+        GameEvents.current.OnBossSpawn += spawnBoss;
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,15 +40,20 @@ public class GameManager : Singleton<GameManager>
         //this checks what the current scene is
         scenecheck();
 
+
     }
 
+    void spawnBoss()
+    {
+            Boss.SetActive(true);
+            
+    }
     private void FixedUpdate()
     {
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-            Boss.SetActive(true);
-            
+            GameEvents.current.BossSpawn();
         }
     }
 
