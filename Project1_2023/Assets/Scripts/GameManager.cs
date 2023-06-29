@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
 
     private TMPro.TextMeshProUGUI DeathText;
-    public GameObject lugia,player;
+    public GameObject Boss,player;
     private float playerscore, levelScore;
     public string Player_Name;
     private bool bossActive = false;
@@ -27,7 +27,12 @@ public class GameManager : Singleton<GameManager>
         set { levelScore = value; }
     }
 
+    private void Start()
+    {
+        GameEvents.current.OnBossSpawn += spawnBoss;
+        GameEvents.current.OnLevelScoreIncrease -= scoreIncrease;
 
+    }
 
     // Update is called once per frame
     void Update()
@@ -37,15 +42,20 @@ public class GameManager : Singleton<GameManager>
         //this checks what the current scene is
         scenecheck();
 
+
     }
 
+    void spawnBoss()
+    {
+            Boss.SetActive(true);
+            
+    }
     private void FixedUpdate()
     {
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-          lugia.SetActive(true);
-            
+            GameEvents.current.BossSpawn();
         }
     }
 
@@ -147,7 +157,12 @@ public class GameManager : Singleton<GameManager>
             DeathText.text = $"score: {playerscore}";
 
     }
-  
+
+   void scoreIncrease()
+    {
+        LevelScore++;
+
+    }
 
 
 

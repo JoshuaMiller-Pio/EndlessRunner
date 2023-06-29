@@ -3,33 +3,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEvents : MonoBehaviour
+public class GameEvents : Singleton<GameEvents>
 {
     public static GameEvents current;
 
     private void Awake()
     {
         current = this;
-        Debug.Log("reset");
     }
 
     public event Action OnScoreIncrease;
-    public event Action OnLevelScoreIncrease;
 
     public void ScoreIncrease()
     {
-        
-        if(OnScoreIncrease != null)
-        {
-            OnScoreIncrease();
-        }
+            
+            OnScoreIncrease?.Invoke();
     }
+
+
+    public event Action OnLevelScoreIncrease;
+
     public void LevelScoreIncrease()
     {
-        if (OnLevelScoreIncrease != null)
-        {
-            OnLevelScoreIncrease();
-        }
+      
+            OnLevelScoreIncrease?.Invoke();
+        
+    }
+
+
+    public event Action OnBossSpawn;
+
+    public void BossSpawn()
+    {
+        
+            OnBossSpawn?.Invoke();
+        
     }
 
 }

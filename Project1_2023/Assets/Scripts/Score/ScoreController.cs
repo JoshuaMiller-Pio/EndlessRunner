@@ -21,7 +21,6 @@ public class ScoreController : MonoBehaviour
 
      void increaseScore()
      {
-        Debug.Log("increase");
           //if player has a multiplier on then score is doubled
           if (ScoreMultiplier.multiplyOn == true)
           {

@@ -14,8 +14,7 @@ public class Boss_Super : MonoBehaviour
 
     private void Start()
     {
-        GameEvents.current.OnScoreIncrease += increaseLevelScore;
-
+        gameObject.SetActive(false);
     }
 
     #region Damage
@@ -45,18 +44,9 @@ public class Boss_Super : MonoBehaviour
         GameManager.Instance.levelWin();
         Destroy(gameObject);
     }
-    void increaseLevelScore()
-    {
-        GameManager.Instance.LevelScore++;
-        Debug.Log(GameManager.Instance.LevelScore);
-    }
-    private void OnDestroy()
-    {
-        
-;        GameEvents.current.OnScoreIncrease -= increaseLevelScore;
 
-    }
 
+    
   
     #endregion
 
