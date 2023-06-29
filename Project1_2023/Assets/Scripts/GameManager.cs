@@ -61,16 +61,10 @@ public class GameManager : Singleton<GameManager>
         bossActive = false;
         SceneManager.LoadScene(1);
         playerscore = 0;
-        /*foreach (var obj in PickUpSpawn.spawnedPickUps)
-        {
-            PickUpSpawn.spawnedPickUps.Remove(obj);
-        }*/
+  
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
 
-        /*foreach (var obj in ObjectSpawner.spawnedObjects)
-        {
-            ObjectSpawner.spawnedObjects.Remove(obj);
-        }*/
+   
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
        
         

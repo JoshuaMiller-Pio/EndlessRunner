@@ -9,7 +9,7 @@ public class ScoreController : MonoBehaviour
     public static int score;
    
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         GameEvents.current.OnScoreIncrease += increaseScore;
         score = 0;
@@ -21,6 +21,7 @@ public class ScoreController : MonoBehaviour
 
      void increaseScore()
      {
+        Debug.Log("increase");
           //if player has a multiplier on then score is doubled
           if (ScoreMultiplier.multiplyOn == true)
           {
