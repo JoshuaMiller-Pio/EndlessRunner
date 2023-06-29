@@ -48,7 +48,6 @@ public class Boss_Super : MonoBehaviour
     void increaseLevelScore()
     {
         GameManager.Instance.LevelScore++;
-        Debug.Log(GameManager.Instance.LevelScore);
     }
     private void OnDestroy()
     {

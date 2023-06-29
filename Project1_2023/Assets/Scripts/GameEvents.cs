@@ -10,7 +10,6 @@ public class GameEvents : MonoBehaviour
     private void Awake()
     {
         current = this;
-        Debug.Log("reset");
     }
 
     public event Action OnScoreIncrease;
