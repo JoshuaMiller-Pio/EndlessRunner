@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 1411684517879112204}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2012948972923651132
 MeshFilter:
@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411684517879112204}
   - component: {fileID: 5383629360687853112}
+  - component: {fileID: 8040779002278816424}
   m_Layer: 0
   m_Name: ScoreTick
   m_TagString: ScoreBox
@@ -213,3 +214,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9624479, y: 10.810228, z: 33.49756}
   m_Center: {x: -4.259142, y: 7.33195, z: 12.612987}
+--- !u!114 &8040779002278816424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514739789191367341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33879bebe1998be46b201b34862be7c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
