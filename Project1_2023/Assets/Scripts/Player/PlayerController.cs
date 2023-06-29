@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour
     public AudioSource runAud_Comp, gruntAud_Comp,GunAud_Comp;
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
-    public GameObject bulletPrefab, bulletSpawn, Lugia;
+    public GameObject bulletPrefab, bulletSpawn, Lugia, pauseMenuCanvas;
         bool winActive = false;
         bool kicktrigger =false;
+    public bool paused;
    
     void Start()
     {    
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         _colliderComp = GetComponent<CapsuleCollider>();
         GameManager.Instance.lugia = Lugia;
         GameManager.Instance.player = gameObject;
-   
+        paused = false;
     }
 
     // Update is called once per frame
@@ -54,6 +55,10 @@ public class PlayerController : MonoBehaviour
             GunAud_Comp.Play();
         }
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+        }
 
         if (GameManager.Instance.win && !winActive)
         {
@@ -74,8 +79,23 @@ public class PlayerController : MonoBehaviour
 
 
     }
-  
 
+    #region Pause Game
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenuCanvas.SetActive(true);
+        paused = true;
+    }
+
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1;
+        paused = false;
+    }
+
+    #endregion
     #region MOVEMENT
     public void ButtonMovement()
     {

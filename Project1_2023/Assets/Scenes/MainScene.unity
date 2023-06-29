@@ -309,22 +309,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1763393559}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1763393559}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 518193692}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: UnPauseGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -941,6 +941,10 @@ PrefabInstance:
       propertyPath: gruntAud_Comp
       value: 
       objectReference: {fileID: 518193678}
+    - target: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+      propertyPath: pauseMenuCanvas
+      value: 
+      objectReference: {fileID: 1763393559}
     - target: {fileID: 4026763584214628263, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
       propertyPath: DoubleSound
       value: 
@@ -2222,7 +2226,7 @@ GameObject:
   - component: {fileID: 464478422}
   - component: {fileID: 464478421}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2268,7 +2272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2481,6 +2485,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 518193687, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
   m_PrefabInstance: {fileID: 171932377}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &518193692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 496460945051352463, guid: 674d06d2406e5a04987990112adbc7d5, type: 3}
+  m_PrefabInstance: {fileID: 171932377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518193670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464f5c8bca2b62e4f885dff607326d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &524445492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2493,7 +2508,7 @@ GameObject:
   - component: {fileID: 524445495}
   - component: {fileID: 524445494}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextHighScores
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2539,7 +2554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: High Scores
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4866,7 +4881,7 @@ GameObject:
   - component: {fileID: 1063448777}
   - component: {fileID: 1063448776}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4912,7 +4927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6410,7 +6425,7 @@ GameObject:
   - component: {fileID: 1727267247}
   - component: {fileID: 1727267246}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6456,7 +6471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6743,7 +6758,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763393559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
