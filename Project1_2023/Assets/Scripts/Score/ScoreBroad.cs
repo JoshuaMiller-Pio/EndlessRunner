@@ -8,7 +8,7 @@ public class ScoreBroad : MonoBehaviour
 {
     public  GameObject Player;
     public  TMP_Text ScoreText;
-    public  int score;
+    public  float score;
     public int ammoCount;
     public TMP_Text ammoText;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class ScoreBroad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = ScoreController.score;
+        score = GameManager.Instance.Playerscore;
         ScoreText.text = "Score: " + score;
         ammoCount = GunPickUp.ammo;
         ammoText.text = "Ammo: " + ammoCount.ToString();
