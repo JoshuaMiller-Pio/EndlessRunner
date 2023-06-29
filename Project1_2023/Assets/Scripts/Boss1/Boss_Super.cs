@@ -12,7 +12,7 @@ public class Boss_Super : MonoBehaviour
         _health = Health;
     }
 
-    private void Start()
+    private void Awake()
     {
         GameEvents.current.OnScoreIncrease += increaseLevelScore;
 
@@ -41,14 +41,14 @@ public class Boss_Super : MonoBehaviour
 
     private void onDeath()
     {
-        GameEvents.current.LevelScoreIncrease();
+        Debug.Log(GameManager.Instance.LevelScore);
+
         GameManager.Instance.levelWin();
         Destroy(gameObject);
     }
     void increaseLevelScore()
     {
-        GameManager.Instance.LevelScore++;
-        Debug.Log(GameManager.Instance.LevelScore);
+        GameManager.Instance.LevelScore += 1;
     }
     private void OnDestroy()
     {
