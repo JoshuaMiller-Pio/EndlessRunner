@@ -9,6 +9,7 @@ public class Obj_ScoreEnter : MonoBehaviour
     {
         if(other.tag == "PlayerChar")
         {
+
             GameEvents.current.ScoreIncrease();
         }
     }
