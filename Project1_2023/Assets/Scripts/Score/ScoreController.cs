@@ -9,46 +9,41 @@ public class ScoreController : MonoBehaviour
     public static int score;
    
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        GameEvents.current.OnScoreIncrease += increaseScore;
         score = 0;
         
     }
 
     //if the delete trigger exits the object the score counter goes up
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "ScoreBox" )
-        {
-            //if player has a multiplier on then score is doubled
-            if(ScoreMultiplier.multiplyOn == true)
-            {
-                score +=  2;
-                GameManager.Instance.Playerscore += 2;
 
-            }
-            else
-            {
-                score += 1;
-                GameManager.Instance.Playerscore += 1;
 
-            }
-            
-        }
-    }
+     void increaseScore()
+     {
+        Debug.Log("increase");
+          //if player has a multiplier on then score is doubled
+          if (ScoreMultiplier.multiplyOn == true)
+          {
 
-    //once the player collides with an object the final score is sent to player 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Obstacle")
-        {
-                GameManager.Instance.Playerscore = score;
+            GameManager.Instance.Playerscore += 2;
 
-        }
-    }
+          }
+          else
+          {
+             GameManager.Instance.Playerscore += 1;
+
+          }
+
+     }
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnDestroy()
+    {
+        GameEvents.current.OnScoreIncrease -= increaseScore;
+
     }
 }
