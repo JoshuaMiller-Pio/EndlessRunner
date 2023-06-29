@@ -10,7 +10,6 @@ public class GameEvents : MonoBehaviour
     private void Awake()
     {
         current = this;
-        Debug.Log("reset");
     }
 
     public event Action OnScoreIncrease;
@@ -18,7 +17,6 @@ public class GameEvents : MonoBehaviour
 
     public void ScoreIncrease()
     {
-        
         if(OnScoreIncrease != null)
         {
             OnScoreIncrease();
