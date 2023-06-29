@@ -10,7 +10,7 @@ public class GameManager : Singleton<GameManager>
 
     private TMPro.TextMeshProUGUI DeathText;
     public GameObject lugia,player;
-    private float playerscore, levelScore;
+    private float playerscore;
     public string Player_Name;
     private bool bossActive = false;
     public bool win = false;
@@ -20,11 +20,6 @@ public class GameManager : Singleton<GameManager>
     {
         get { return playerscore; }   
         set { playerscore = value; }
-    }
-    public float LevelScore
-    {
-        get { return levelScore; }
-        set { levelScore = value; }
     }
 
 
@@ -44,7 +39,7 @@ public class GameManager : Singleton<GameManager>
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-          lugia.SetActive(true);
+           lugia.SetActive(true);
             
         }
     }
