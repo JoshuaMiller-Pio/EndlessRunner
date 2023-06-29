@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour
     public AudioSource runAud_Comp, gruntAud_Comp,GunAud_Comp;
     private CapsuleCollider _colliderComp = new CapsuleCollider();
     private float timeElapsed;
-    public GameObject bulletPrefab, bulletSpawn, Lugia, pauseMenuCanvas;
+    public GameObject bulletPrefab, bulletSpawn, Boss, pauseMenuCanvas;
         bool winActive = false;
         bool kicktrigger =false;
     public bool paused;
    
-    void Start()
+    void Awake()
     {    
 
         //creates new objects and adds components
@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
         _rigComp = GetComponent<Rigidbody>();
         _aniComp = GetComponent<Animator>();
         _colliderComp = GetComponent<CapsuleCollider>();
-        GameManager.Instance.lugia = Lugia;
+        Boss = GameObject.FindGameObjectWithTag("Boss");
+        GameManager.Instance.Boss = Boss;
         GameManager.Instance.player = gameObject;
         paused = false;
     }

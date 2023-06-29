@@ -13,7 +13,6 @@ public class GameEvents : MonoBehaviour
     }
 
     public event Action OnScoreIncrease;
-    public event Action OnLevelScoreIncrease;
 
     public void ScoreIncrease()
     {
@@ -23,11 +22,23 @@ public class GameEvents : MonoBehaviour
             OnScoreIncrease();
         }
     }
+    public event Action OnLevelScoreIncrease;
+
     public void LevelScoreIncrease()
     {
         if (OnLevelScoreIncrease != null)
         {
             OnLevelScoreIncrease();
+        }
+    }
+
+    public event Action OnBossSpawn;
+
+    public void BossSpawn()
+    {
+        if (OnBossSpawn != null)
+        {
+            OnBossSpawn();
         }
     }
 

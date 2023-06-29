@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
 
     private TMPro.TextMeshProUGUI DeathText;
-    public GameObject lugia,player;
+    public GameObject Boss,player;
     private float playerscore, levelScore;
     public string Player_Name;
     private bool bossActive = false;
@@ -44,7 +44,7 @@ public class GameManager : Singleton<GameManager>
         if (playerscore >= 1 && !bossActive)
         {
           bossActive = true;
-          lugia.SetActive(true);
+            Boss.SetActive(true);
             
         }
     }

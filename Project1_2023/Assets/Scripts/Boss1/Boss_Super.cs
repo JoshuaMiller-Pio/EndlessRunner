@@ -15,7 +15,7 @@ public class Boss_Super : MonoBehaviour
     private void Start()
     {
         GameEvents.current.OnScoreIncrease += increaseLevelScore;
-
+        gameObject.SetActive(false);
     }
 
     #region Damage
