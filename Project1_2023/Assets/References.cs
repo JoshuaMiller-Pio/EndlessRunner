@@ -16,6 +16,7 @@
 //Worn Bare Metal(no date) TexturesTextrures.com.Available at: https://www.textures.com/download/PBR1063/142895 (Accessed: 28 May 2023). 
 
 
+
 //Images:
 
 //Miller-Pio, J. 2023. "Shotgun Shell". [Digital Render][Personal Collection]. Unpublished.
@@ -40,6 +41,8 @@
 
 //Free low poly human - RPG character: Characters (2022) Unity Asset Store. Blink. Available at: https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/freelow-poly-human-rpg-character-219979 (Accessed: April 11, 2023).
 
+//vandunks. "Low Poly Treent and Gnome Models" (2023). [Blender]. Available at: https://vandunks.itch.io/low-poly-treent-gnomes-models (Accessed: 30 June 2023).
+
 //Miller-Pio, J.(2023)."3D Model of 9mm bullet"[Blender]. Unpublished
 
 //Miller-Pio, J.(2023)."3D Model of a log"[Blender]. Unpublished
@@ -57,6 +60,7 @@
 //Zunde, J.(2021)."Lugia"[Blender]. Unpublished
 
 //Zunde, J.(2021)."Rock"[Blender]. Unpublished
+
 
 
 //Audio:
