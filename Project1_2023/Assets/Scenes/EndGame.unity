@@ -1568,9 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Quit:
   - {fileID: 921833924}
-  Restart:
-  - {fileID: 63876121}
-  Start: {fileID: 0}
+  Start: {fileID: 63876121}
 --- !u!4 &1446908969
 Transform:
   m_ObjectHideFlags: 0

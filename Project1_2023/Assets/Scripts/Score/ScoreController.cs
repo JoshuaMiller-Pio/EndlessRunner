@@ -26,11 +26,13 @@ public class ScoreController : MonoBehaviour
           {
 
             GameManager.Instance.Playerscore += 2;
+            GameManager.Instance.Currentscore += 2;
 
-          }
-          else
+        }
+        else
           {
              GameManager.Instance.Playerscore += 1;
+             GameManager.Instance.Currentscore += 1;
 
           }
 
