@@ -6,9 +6,12 @@ public class TreeController : Boss_Super
 {
     static Rigidbody RigComp;
     float timer = 2.5f;
-    static float health = 1;
+    static float health = 10;
 
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     private TreeController() : base(health)
     {
 
@@ -46,9 +49,9 @@ public class TreeController : Boss_Super
 
         int lane = Random.Range(0, 3);
         Vector3 left, middle, right;
-        left = new Vector3(-32.5f, transform.position.y, transform.position.z + 9.9f);
-        middle = new Vector3(-26.7f, transform.position.y, transform.position.z + 9.9f);
-        right = new Vector3(-20.9f, transform.position.y, transform.position.z + 9.9f);
+        left = new Vector3(-5.3f, transform.position.y, transform.position.z + 9.9f);
+        middle = new Vector3(0.85f, transform.position.y, transform.position.z + 9.9f);
+        right = new Vector3(6.6f, transform.position.y, transform.position.z + 9.9f);
 
         Vector3[] lanesPick = new Vector3[] { left, middle, right };
 

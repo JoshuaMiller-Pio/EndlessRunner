@@ -17,7 +17,7 @@ public class LugiaAttack : MonoBehaviour
         if (time <= 0)
         {
             FireAttack();
-            time = Random.Range(2,6);
+            time = 5;
         }
     }
    void FireAttack()
