@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Buttons : MonoBehaviour
 {
     public UnityEngine.UI.Button[] Quit;
+    public UnityEngine.UI.Button[] Restart;
     public UnityEngine.UI.Button Start;
 
 
@@ -23,6 +24,10 @@ public class Buttons : MonoBehaviour
     {
 
         Quit[0].onClick.AddListener(GameManager.Instance.onQuitClicked);
+        if (Restart.Length != 0)
+        {
+          Restart[0].onClick.AddListener(GameManager.Instance.onRestartClicked);
+        }
         Start.onClick.AddListener(GameManager.Instance.onStartClicked);
 
 

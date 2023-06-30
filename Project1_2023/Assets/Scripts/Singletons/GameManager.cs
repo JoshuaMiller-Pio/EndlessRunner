@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +13,9 @@ public class GameManager : Singleton<GameManager>
     private TMPro.TextMeshProUGUI DeathText;
     public GameObject Boss,player;
     private float playerscore, levelScore;
+    int levelRestart;
     public string Player_Name;
-    private bool bossActive = false;
-    public bool win = false;
+    public bool win = false, bossActive = false;
 
     //this Property allows other scripts to assign the player score to it
     public float Playerscore   
@@ -30,7 +32,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         GameEvents.current.OnBossSpawn += spawnBoss;
-        GameEvents.current.OnLevelScoreIncrease -= scoreIncrease;
+        GameEvents.current.OnLevelScoreIncrease -= LevelscoreIncrease;
 
     }
 
@@ -71,28 +73,32 @@ public class GameManager : Singleton<GameManager>
         bossActive = false;
         SceneManager.LoadScene(1);
         playerscore = 0;
-  
+       levelRestart =  1;
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
-
-   
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
-       
-        
-        
-
     }
+
+    public void onRestartClicked()
+    {
+        bossActive = false;
+        SceneManager.LoadScene(levelRestart);
+        playerscore = 0;
+        Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
+        Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
+    }
+
     //loads game over scene
     public void GameOver()
     {
         bossActive = false;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
 
     }
 
        //if is current scene is game over it calls the game over score
     public void scenecheck()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             gameoverScore();
         }
@@ -100,54 +106,19 @@ public class GameManager : Singleton<GameManager>
 
     public void levelWin()
     {
-        bossActive = false;
-        
-        Canvas uiCanvas, vicCanvas;
-        Camera Vicam, maincam;
-        for (int i = 0; i < GameObject.FindObjectsOfType<Canvas>(true).Length; i++)
+        if((SceneManager.GetActiveScene().buildIndex == 3) && LevelScore <= 1)
         {
-            if (GameObject.FindObjectsOfType<Canvas>(true)[i].name == "VictoryCanvas")
-            {
-                 vicCanvas = GameObject.FindObjectsOfType<Canvas>(true)[i];
-                vicCanvas.gameObject.SetActive(true);
-                for (int j = 0; j < GameObject.FindObjectsOfType<GameObject>().Length; j++)
-                {
-                     if (GameObject.FindObjectsOfType<GameObject>(true)[i].name == "NewObjectSpawner")
-                     {
-                        GameObject SpawnerDisable = GameObject.FindObjectsOfType<GameObject>(true)[j];
-                        vicCanvas.gameObject.SetActive(false);
+            SceneManager.LoadScene(2);
+            levelRestart = 2;
 
-                     }
 
-                }
-
-            }
-            else
-            {
-                 uiCanvas = GameObject.FindObjectsOfType<Canvas>(true)[i];
-                uiCanvas.gameObject.SetActive(false);
-
-            }
         }
-
-
-        for (int i = 0; i < GameObject.FindObjectsOfType<Camera>(true).Length; i++)
+        else
         {
-            if (GameObject.FindObjectsOfType<Camera>(true)[i].name == "VicCam")
-            {
-                Vicam = GameObject.FindObjectsOfType<Camera>(true)[i];
-                Vicam.gameObject.SetActive(true);
-            }
-            else
-            {
-                maincam = GameObject.FindObjectsOfType<Camera>(true)[i];
-                maincam.gameObject.SetActive(false);
-            }
-            
-       
+            SceneManager.LoadScene(Random.Range(1, 3));
+            levelRestart = SceneManager.GetActiveScene().buildIndex;
+
         }
-        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-        win = true;
     }
 
     public void gameoverScore( )
@@ -158,7 +129,7 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-   void scoreIncrease()
+   void LevelscoreIncrease()
     {
         LevelScore++;
 
