@@ -12,8 +12,7 @@ public class LugiaEntrance : MonoBehaviour
     // Start is called before the first frame update
     void  Awake()
     {
-        
-  
+
         
 
 

@@ -14,7 +14,9 @@ public class Boss_Super : MonoBehaviour
 
     private void Start()
     {
+
         gameObject.SetActive(false);
+
     }
 
     #region Damage
@@ -32,7 +34,6 @@ public class Boss_Super : MonoBehaviour
         _health -= 1;
         if (_health <= 0)
         {
-
             onDeath();
         }
     }
@@ -56,5 +57,11 @@ public class Boss_Super : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+           GameManager.Instance.bossActive = false;
+
     }
 }
