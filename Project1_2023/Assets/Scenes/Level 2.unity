@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
   m_FogMode: 2
   m_FogDensity: 0.08
@@ -16979,9 +16979,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 7257409699644472352, guid: cae3ed74af63ac540a1acd77d4b561f9, type: 3}
+  - {fileID: 1137063676115581970, guid: a0919f61b1ec55b4ca8a10d38f13c878, type: 3}
   - {fileID: 7390318879768791429, guid: 886122af1147e884a84bb3bac93af440, type: 3}
-  - {fileID: 2813453807410041123, guid: 0af69125762516340acbfd158636bc7b, type: 3}
+  - {fileID: 5981527791669333968, guid: 36b0ec0af84aa3847a0fbe1b3eacd94d, type: 3}
   Player: {fileID: 750066706}
   spawnPositions:
   - {fileID: 1230822030}
