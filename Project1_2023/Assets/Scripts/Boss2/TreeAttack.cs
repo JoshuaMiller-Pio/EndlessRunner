@@ -25,7 +25,7 @@ public class TreeAttack : MonoBehaviour
     void FireAttack()
     {
         Rigidbody fireballComp = Instantiate(Bullet, BulletSpawner.transform.position, transform.rotation).GetComponent<Rigidbody>();
-        fireballComp.AddForce(0f, 0f, 50f, ForceMode.Impulse);
+        fireballComp.AddForce(0f, 0f, 35f, ForceMode.Impulse);
        // TreeFire.Play();
     }
 }

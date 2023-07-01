@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
     private float playerScore, levelScore, currentScore;
     public string Player_Name;
     public bool win = false, bossActive = false;
-
+    public bool bossSpawn;
     //this Property allows other scripts to assign the player score to it
     public float Playerscore   
     {
@@ -37,7 +37,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Scene");
         //limits frames to 60
         Application.targetFrameRate = 60;
-
+        bossSpawn = false;
     }
 
 
@@ -52,7 +52,12 @@ public class GameManager : Singleton<GameManager>
     {
 
         Boss.SetActive(true);
+        if(Boss.gameObject.name == "Tree Guardian Variant 1")
+        {
+            Boss.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z - 7);
+        }
         Debug.Log("run");
+        bossSpawn=true;
     }
 
     private void FixedUpdate()
@@ -99,6 +104,7 @@ public class GameManager : Singleton<GameManager>
     {
         GameEvents.current.OnBossSpawn -= spawnBoss;
         bossActive = false;
+        bossSpawn = false;
         SceneManager.LoadScene(3);
         currentScore = 0;
     }
@@ -115,7 +121,7 @@ public class GameManager : Singleton<GameManager>
     public void levelWin()
     {
         GameEvents.current.OnBossSpawn -= spawnBoss;
-
+        bossSpawn = false;
         if ((SceneManager.GetActiveScene().buildIndex == 1) && LevelScore <= 1)
         {
             SceneManager.LoadScene(2);
