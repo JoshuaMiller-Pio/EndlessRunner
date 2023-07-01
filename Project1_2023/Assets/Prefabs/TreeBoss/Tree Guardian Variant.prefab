@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154346042}
   m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.7848733, y: 3.068141, z: -4.411938}
+  m_LocalPosition: {x: -0.7848733, y: 3.068141, z: -4.89}
   m_LocalScale: {x: 1.189202, y: 1.189202, z: 1.189202}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 48d6f4cba0b0c3b489136fc56855b284, type: 3}
       propertyPath: m_Name
-      value: Tree Guardian
+      value: Tree Guardian Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 48d6f4cba0b0c3b489136fc56855b284, type: 3}
       propertyPath: m_IsActive
@@ -262,45 +262,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bde81868ec684e4a8305f445e8c0fab, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1523334738}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bde81868ec684e4a8305f445e8c0fab, type: 3}
 --- !u!4 &1549968791624266877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bde81868ec684e4a8305f445e8c0fab, type: 3}
   m_PrefabInstance: {fileID: 1299324888502883222}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2218384332450754247 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8bde81868ec684e4a8305f445e8c0fab, type: 3}
-  m_PrefabInstance: {fileID: 1299324888502883222}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1523334738
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2218384332450754247}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
