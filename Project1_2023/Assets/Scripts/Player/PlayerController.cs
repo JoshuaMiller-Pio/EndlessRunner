@@ -1,13 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Timers;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-using static UnityEngine.GraphicsBuffer;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private Animator _aniComp = new Animator();
     public AudioSource runAud_Comp, gruntAud_Comp,GunAud_Comp;
     private CapsuleCollider _colliderComp = new CapsuleCollider();
-    private float timeElapsed;
     public GameObject bulletPrefab, bulletSpawn, Boss, pauseMenuCanvas;
         bool winActive = false;
         bool kicktrigger =false;
