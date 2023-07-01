@@ -6,7 +6,7 @@ public class TreeController : Boss_Super
 {
     static Rigidbody RigComp;
     float timer = 2.5f;
-    static float health = 15;
+    static float health = 10;
 
     private void Start()
     {
