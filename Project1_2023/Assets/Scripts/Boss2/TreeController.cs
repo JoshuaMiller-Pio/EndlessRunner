@@ -6,7 +6,7 @@ public class TreeController : Boss_Super
 {
     static Rigidbody RigComp;
     float timer = 2.5f;
-    static float health = 20;
+    static float health = 15;
 
     private void Start()
     {
@@ -33,7 +33,17 @@ public class TreeController : Boss_Super
         }
     }
 
-
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            health--;
+            if (health <= 0)
+            {
+                GameManager.Instance.levelWin();
+            }
+        }
+    }
 
 
 

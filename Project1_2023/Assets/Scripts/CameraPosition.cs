@@ -16,9 +16,9 @@ public class CameraPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Boss)
+        if (GameManager.Instance.bossSpawn)
         {
-
+           
             CameraCurrentPosition = new Vector3(0.95f, 9, Boss.transform.position.z - 3);
           gameObject.transform.position = CameraCurrentPosition;
         }
