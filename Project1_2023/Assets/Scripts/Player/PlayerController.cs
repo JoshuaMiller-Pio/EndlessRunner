@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         bool winActive = false;
         bool kicktrigger =false;
     public bool paused;
+    public int playerHealth;
    
     void Awake()
     {    
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.Boss = Boss;
         GameManager.Instance.player = gameObject;
         paused = false;
+        playerHealth = 10;
     }
 
     // Update is called once per frame
@@ -77,10 +79,20 @@ public class PlayerController : MonoBehaviour
         {
             Kick.entered = false;
         }
-
+        
+        
 
     }
 
+   
+    public void TakeDamage()
+    {
+        playerHealth--;
+        if(playerHealth <= 0)
+        {
+            OnPlayerDeath();
+        }
+    }
     #region Pause Game
 
     public void PauseGame()
@@ -235,6 +247,10 @@ public class PlayerController : MonoBehaviour
         {
             OnPlayerDeath();
 
+        }
+        if (other.gameObject.tag == "Caroot")
+        {
+            TakeDamage();
         }
     }
 

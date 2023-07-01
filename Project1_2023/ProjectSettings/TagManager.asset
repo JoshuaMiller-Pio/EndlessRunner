@@ -19,6 +19,7 @@ TagManager:
   - Boss
   - FireBall
   - Enviroment
+  - Caroot
   layers:
   - Default
   - TransparentFX
