@@ -16,7 +16,6 @@ public class TreeAttack : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            Debug.Log(time);
             time = 1f;
             FireAttack();
         }
@@ -27,6 +26,6 @@ public class TreeAttack : MonoBehaviour
     {
         Rigidbody fireballComp = Instantiate(Bullet, BulletSpawner.transform.position, transform.rotation).GetComponent<Rigidbody>();
         fireballComp.AddForce(0f, 0f, 50f, ForceMode.Impulse);
-        TreeFire.Play();
+       // TreeFire.Play();
     }
 }
