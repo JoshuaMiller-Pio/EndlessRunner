@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class DatabaseManager : Singleton<DatabaseManager>
 {
-    
-    // Start is called before the first frame update
+
+    List<String> scoreDetails = new List<String>();
     String path = Directory.GetCurrentDirectory() + "/Highscore.txt";
     void Start()
     {
@@ -23,12 +23,13 @@ public class DatabaseManager : Singleton<DatabaseManager>
    public void WriteToFile(string Name,float score,float bossesBeat)
     {
         //checks if the file exists if not it creates the file and writes to it
+        Debug.Log("sheeeeeee");
 
         if (!System.IO.File.Exists(path))
         {
             using (StreamWriter writer = System.IO.File.CreateText(path))
             {
-                writer.WriteLine($"{Name}#{score}#{bossesBeat}");
+                writer.WriteLine($"{Name}#{bossesBeat}#{score}");
             }
         }
         //writes to the file
@@ -37,7 +38,8 @@ public class DatabaseManager : Singleton<DatabaseManager>
             using (StreamWriter writer = System.IO.File.AppendText(path))
             {
 
-                writer.WriteLine($"{Name}#{score}#{bossesBeat}");
+
+                writer.WriteLine($"{Name}#{bossesBeat}#{score}");
             }
         }
 
@@ -61,21 +63,39 @@ public class DatabaseManager : Singleton<DatabaseManager>
         //if file is found, it reads
         using (StreamReader reader = new StreamReader(path))
         {
-            TMPro.TextMeshProUGUI lable_name;
-            lable_name = GameObject.Find("name_Display").GetComponent<TMPro.TextMeshProUGUI>();
-            List<String> scoreDetails = new List<String>();
+          
           //while not end of file it populates the list with details
             while (!reader.EndOfStream)
             {
 
                 scoreDetails.Add(reader.ReadLine());
             }
-            lable_name.text = scoreDetails[0];
-          
+                Displayer();
         }
     }
     
+    void Displayer()
+    {
+        //get all the fields
+        TMPro.TextMeshProUGUI lable_name, lable_bossKill, lable_totalScore;
+        lable_name = GameObject.Find("name_Display").GetComponent<TMPro.TextMeshProUGUI>();
+        lable_bossKill = GameObject.Find("boss_Display").GetComponent<TMPro.TextMeshProUGUI>();
+        lable_totalScore = GameObject.Find("score_Display").GetComponent<TMPro.TextMeshProUGUI>();
+        TMPro.TextMeshProUGUI[] infoArray = new TMPro.TextMeshProUGUI[]{ lable_name, lable_bossKill, lable_totalScore };
 
+        for (int i = 0; i < scoreDetails.Count; i++)
+        {
+           String[] info = scoreDetails[i].Split('#');
+            for (int j = 0; j < 3; j++)
+            {
+                infoArray[j].text += (info[j] + "\n");
+
+            }
+        }
+
+
+
+    }
         
     
     
