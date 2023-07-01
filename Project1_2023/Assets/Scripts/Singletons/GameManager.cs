@@ -85,7 +85,7 @@ public class GameManager : Singleton<GameManager>
 
     public void onHighScoreDisplay()
     {
-
+        DatabaseManager.Instance.ReadFromFile();
     }
   public void onSubmitClicked(TMPro.TMP_InputField inputName)
     {
