@@ -34,7 +34,7 @@ public class LugiaEntrance : MonoBehaviour
     }
     IEnumerator EntranceMove()
     {
-        Vector3 targetPosition = new Vector3(mainBody.transform.position.x, mainBody.transform.position.y, player.transform.position.z + 27.19f);
+        Vector3 targetPosition = new Vector3(mainBody.transform.position.x, mainBody.transform.position.y, player.transform.position.z + 25.19f);
         float time = 0;
         while (time < 1)
         {
