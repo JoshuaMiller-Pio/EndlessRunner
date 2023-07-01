@@ -22,7 +22,7 @@ public class Boss_Super : MonoBehaviour
     #region Damage
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "FireBall")
+        if (other.gameObject.tag == "FireBall" || other.gameObject.tag == "Obstacle")
         {
             onDamageTaken();
             Destroy(other.gameObject);
