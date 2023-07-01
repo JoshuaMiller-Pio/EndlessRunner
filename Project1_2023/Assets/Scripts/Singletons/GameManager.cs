@@ -89,7 +89,7 @@ public class GameManager : Singleton<GameManager>
     }
   public void onSubmitClicked(TMPro.TMP_InputField inputName)
     {
-
+                Debug.Log("sheeeeeee");
         Player_Name = inputName.text;
         DatabaseManager.Instance.WriteToFile(Player_Name, playerScore, levelScore);
     }
