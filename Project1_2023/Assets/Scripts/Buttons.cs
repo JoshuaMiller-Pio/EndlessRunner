@@ -9,6 +9,8 @@ public class Buttons : MonoBehaviour
 {
     public UnityEngine.UI.Button[] Quit;
     public UnityEngine.UI.Button Start;
+    public UnityEngine.UI.Button Submit;
+    public TMPro.TMP_InputField ass;
 
 
     // Update is called once per frame
@@ -25,10 +27,14 @@ public class Buttons : MonoBehaviour
         Quit[0].onClick.AddListener(GameManager.Instance.onQuitClicked);
      
         Start.onClick.AddListener(GameManager.Instance.onStartClicked);
+        Submit.onClick.AddListener(sendInfo);
 
 
     }
-    
+    void sendInfo()
+    {
+        GameManager.Instance.onSubmitClicked(ass);
+    }
   
 
 }

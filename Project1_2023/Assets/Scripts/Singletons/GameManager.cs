@@ -1,7 +1,4 @@
 using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -57,6 +54,7 @@ public class GameManager : Singleton<GameManager>
         Boss.SetActive(true);
         Debug.Log("run");
     }
+
     private void FixedUpdate()
     {
         if (currentScore >= 1 && !bossActive)
@@ -85,6 +83,16 @@ public class GameManager : Singleton<GameManager>
     }
 
 
+    public void onHighScoreDisplay()
+    {
+
+    }
+  public void onSubmitClicked(TMPro.TMP_InputField inputName)
+    {
+
+        Player_Name = inputName.text;
+        DatabaseManager.Instance.WriteToFile(Player_Name, playerScore, levelScore);
+    }
 
     //loads game over scene
     public void GameOver()
