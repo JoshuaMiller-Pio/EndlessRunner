@@ -4897,7 +4897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Quit:
   - {fileID: 968344874}
-  - {fileID: 0}
   Start: {fileID: 2128283591}
   Submit: {fileID: 0}
   submit_text: {fileID: 0}

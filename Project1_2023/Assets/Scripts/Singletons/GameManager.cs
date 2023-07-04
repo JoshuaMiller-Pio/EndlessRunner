@@ -85,6 +85,15 @@ public class GameManager : Singleton<GameManager>
         currentScore = 0;
         Destroy(GameObject.FindGameObjectWithTag("Multiplier"));
         Destroy(GameObject.FindGameObjectWithTag("Obstacle"));
+    } 
+    public void onMenuClicked()
+    {
+        Debug.Log("weee");
+        bossActive = false;
+        SceneManager.LoadScene(0);
+        playerScore = 0;
+        currentScore = 0;
+     
     }
 
 
