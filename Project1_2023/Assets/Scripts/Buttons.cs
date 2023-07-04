@@ -7,10 +7,10 @@ using UnityEngine.UIElements;
 
 public class Buttons : MonoBehaviour
 {
-    public UnityEngine.UI.Button[] Quit;
+    public UnityEngine.UI.Button[] Quit = null;
     public UnityEngine.UI.Button Start;
-    public UnityEngine.UI.Button Submit;
-    public UnityEngine.UI.Button Menu;
+    public UnityEngine.UI.Button Submit = null;
+    public UnityEngine.UI.Button Menu = null;
     public TMPro.TMP_InputField submit_text;
     public UnityEngine.UI.Button Highscores;
 
@@ -25,9 +25,12 @@ public class Buttons : MonoBehaviour
     void Awake()
 
     {
+        if (Menu != null)
+        {
+            Menu.onClick.AddListener(GameManager.Instance.onMenuClicked);
+        }
 
-        Menu.onClick.AddListener(GameManager.Instance.onMenuClicked);
-     
+
         Start.onClick.AddListener(GameManager.Instance.onStartClicked);
 
         if (Submit != null)
