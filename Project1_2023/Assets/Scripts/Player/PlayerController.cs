@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
             OnPlayerDeath();
 
         }
-        if (other.gameObject.tag == "Caroot")
+        if (other.gameObject.tag == "Caroot" && Shield.isShielded() == false)
         {
             TakeDamage();
         }
