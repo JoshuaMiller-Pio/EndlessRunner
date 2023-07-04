@@ -62,7 +62,7 @@ public class GameManager : Singleton<GameManager>
 
     private void FixedUpdate()
     {
-        if (currentScore >= 1 && !bossActive)
+        if (currentScore >= 25 && !bossActive)
         {
             bossActive = true;
             spawnBoss();
@@ -143,6 +143,7 @@ public class GameManager : Singleton<GameManager>
         {
             int random = Random.Range(1, 3);
 
+            bossActive = false;
             SceneManager.LoadScene(random);
 
         }
