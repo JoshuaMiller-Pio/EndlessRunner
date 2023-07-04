@@ -10,6 +10,7 @@ public class Buttons : MonoBehaviour
     public UnityEngine.UI.Button[] Quit;
     public UnityEngine.UI.Button Start;
     public UnityEngine.UI.Button Submit;
+    public UnityEngine.UI.Button Menu;
     public TMPro.TMP_InputField submit_text;
     public UnityEngine.UI.Button Highscores;
 
@@ -25,9 +26,10 @@ public class Buttons : MonoBehaviour
 
     {
 
-        Quit[0].onClick.AddListener(GameManager.Instance.onQuitClicked);
+        Menu.onClick.AddListener(GameManager.Instance.onMenuClicked);
      
         Start.onClick.AddListener(GameManager.Instance.onStartClicked);
+
         if (Submit != null)
         {
             Submit.onClick.AddListener(sendInfo);
@@ -35,6 +37,11 @@ public class Buttons : MonoBehaviour
         if (Highscores != null)
         {
             Highscores.onClick.AddListener(GameManager.Instance.onHighScoreDisplay);
+        }
+        if (Quit.Length != null)
+        {
+        Quit[0].onClick.AddListener(GameManager.Instance.onQuitClicked);
+
         }
 
 
