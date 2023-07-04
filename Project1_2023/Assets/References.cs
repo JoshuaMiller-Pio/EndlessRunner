@@ -41,6 +41,8 @@
 
 //Free low poly human - RPG character: Characters (2022) Unity Asset Store. Blink. Available at: https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/freelow-poly-human-rpg-character-219979 (Accessed: April 11, 2023).
 
+//Flat Style Vehicles Pack Free (2017) Unity Asset Store. Blink. Available at: https://assetstore.unity.com/packages/3d/vehicles/flat-style-vehicles-pack-free-90081 (Accessed: June 27, 2023).
+
 //vandunks. "Low Poly Treent and Gnome Models" (2023). [Blender]. Available at: https://vandunks.itch.io/low-poly-treent-gnomes-models (Accessed: 30 June 2023).
 
 //vandunks. "Caroot" (2023). [Blender]. Available at: https://vandunks.itch.io/low-poly-treent-gnomes-models (Accessed: 30 June 2023).
@@ -71,7 +73,11 @@
 
 //Hammarbäck, M. (no date) Fire sound efftect | royalty free music - pixabay, pixabay. Available at: https://pixabay.com/sound-effects/fire-sound-efftect-21991/ (Accessed: 28 May 2023). 
 
+//Mapamusic(no date) In The Jungle | royalty-free music - pixabay, PixaBay. Available at: https://pixabay.com/music/main-title-in-the-jungle-153813/ (Accessed: 27 June 2023). 
+
 //Pixabay (no date) 9mm pistol shot | royalty free music - pixabay, Pixabay. Available at: https://pixabay.com/sound-effects/9mm-pistol-shot-6349/ (Accessed: 28 May 2023). 
+
+//Pixabay(no date a) Birds | royalty-free music - pixabay, pixabay. Available at: https://pixabay.com/sound-effects/birds-19624/ (Accessed: 27 June 2023). 
 
 //Pixabay(no date a) Blaster 2 | royalty-free music - pixabay, pixabay. Available at: https://pixabay.com/sound-effects/blaster-2-81267/ (Accessed: 27 May 2023). 
 
@@ -90,6 +96,11 @@
 //PixaBay(no date) Sci Fi Door | Royalty-free music - pixabay, PixaBay. Available at: https://pixabay.com/sound-effects/sci-fi-door-14782/ (Accessed: 27 May 2023). 
 
 //Zen_man(no date) Background loop melodic techno #04 | royalty-free music - pixabay, PixaBay. Available at: https://pixabay.com/music/techno-trance-background-loop-melodic-techno-04-3822/ (Accessed: 27 May 2023). 
+
+
+
+
+
 
 
 

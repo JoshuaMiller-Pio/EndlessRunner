@@ -9,7 +9,7 @@ public class LugiaController : Boss_Super
 {
    static Rigidbody RigComp;
     float timer = 2.5f;
-    static float health = 1;
+    static float health = 5;
 
 
     private LugiaController() : base(health)
