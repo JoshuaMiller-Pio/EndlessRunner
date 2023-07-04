@@ -43,6 +43,8 @@
 
 //vandunks. "Low Poly Treent and Gnome Models" (2023). [Blender]. Available at: https://vandunks.itch.io/low-poly-treent-gnomes-models (Accessed: 30 June 2023).
 
+//vandunks. "Caroot" (2023). [Blender]. Available at: https://vandunks.itch.io/low-poly-treent-gnomes-models (Accessed: 30 June 2023).
+
 //Miller-Pio, J.(2023)."3D Model of 9mm bullet"[Blender]. Unpublished
 
 //Miller-Pio, J.(2023)."3D Model of a log"[Blender]. Unpublished
